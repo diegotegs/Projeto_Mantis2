@@ -129,9 +129,7 @@ namespace CSharpSeleniumTemplate.Tests
         {
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
-            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
-            
-            
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;            
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -144,6 +142,28 @@ namespace CSharpSeleniumTemplate.Tests
             managePage.ClicarAdicionarProjeto();
             Assert.AreEqual("Operação realizada com sucesso.", managePage.MenssagemSucesso());
             
+
+        }
+
+        [Test]
+        public void ApagarProjeto()
+        {
+
+            #region Parameters
+            string usuario = Properties.Settings.Default.DEFAULT_USER;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            #endregion
+
+            loginFlows.EfetuarLogin(usuario, senha);
+
+            managePage.ClicarMenuGerenciar();
+            managePage.ClicarGerenciarProjeto();
+            Assume.That(managePage.VerificarSeExisteProjeto());
+            managePage.ClicarPrimeiroProjeto();
+            managePage.ClicarApagarProjeto();
+            managePage.ConfirmarApagarProjeto();
+            Assert.That(managePage.VerificarExistenciaDoBotaoCriarNovaProjeto());
+
 
         }
 

@@ -31,6 +31,8 @@ namespace CSharpSeleniumTemplate.Pages
         By fieldDescription = By.Id("project-description");
         By btnAddProject = By.XPath("//form[@id='manage-project-create-form']/div/div[3]/input");
         By msgSucessfullCreateProject = By.XPath("//div[@id='main-container']/div[2]/div[2]/div/div/div/div[2]/p");
+        By firstFieldTable = By.XPath("//td/a");
+        By btnDeleteProject = By.XPath("//input[@value='Apagar Projeto']");
         
 
 
@@ -89,6 +91,21 @@ namespace CSharpSeleniumTemplate.Pages
             Click(btnAddProject);
         }
 
+        public void ClicarPrimeiroProjeto()
+        {
+            Click(firstFieldTable);
+        }
+
+        public void ClicarApagarProjeto()
+        {
+            Click(btnDeleteProject);
+        }
+
+        public void ConfirmarApagarProjeto()
+        {
+            Click(btnDeleteProject);
+        }
+
 
 
               
@@ -134,6 +151,10 @@ namespace CSharpSeleniumTemplate.Pages
             return GetText(msgSucessfullCreateProject);
         }
 
+        public bool VerificarSeExisteProjeto()
+        {
+            return ReturnIfElementExists(firstFieldTable);
+        }
 
         //Preencher Campo --------------------------------------------------------------------------------------------------
         public void PreencherNomeProjeto()

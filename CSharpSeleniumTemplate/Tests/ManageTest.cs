@@ -20,7 +20,7 @@ namespace CSharpSeleniumTemplate.Tests
         #endregion
 
         [Test]
-        public void VerificarAbaGerenciarUsuario()
+        public void AcessarAbaGerenciarUsuario()
         {
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
@@ -35,7 +35,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
-        public void VerificarAbaGerenciarProjetos()
+        public void AcessarAbaGerenciarProjetos()
         {
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
@@ -50,7 +50,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
-        public void VerificarAbaGerenciarMarcadores()
+        public void AcessarAbaGerenciarMarcadores()
         {
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
@@ -65,7 +65,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
-        public void VerificarAbaGerenciarCamposPersonalizados()
+        public void AcessarAbaGerenciarCamposPersonalizados()
         {
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
@@ -80,7 +80,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
-        public void VerificarAbaGerenciarPerfisGlobal()
+        public void AcessarAbaGerenciarPerfisGlobal()
         {
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
@@ -95,7 +95,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
-        public void VerificarAbaGerenciarPlugins()
+        public void AcessarAbaGerenciarPlugins()
         {
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
@@ -110,7 +110,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
-        public void VerificarAbaGerenciarConfiguracoes()
+        public void AcessarAbaGerenciarConfiguracoes()
         {
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
@@ -123,6 +123,30 @@ namespace CSharpSeleniumTemplate.Tests
             managePage.ClicarGerenciarConfiguracoes();
             Assert.That(managePage.VerificarExistenciaDoBotaoRelatoriosDePermissoes());
         }
+
+        [Test]
+        public void CriarNovoProjeto()
+        {
+            #region Parameters
+            string usuario = Properties.Settings.Default.DEFAULT_USER;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            
+            
+            #endregion
+
+            loginFlows.EfetuarLogin(usuario, senha);
+
+            managePage.ClicarMenuGerenciar();
+            managePage.ClicarGerenciarProjeto();
+            managePage.ClicarNovoProjeto();
+            managePage.PreencherNomeProjeto();
+            managePage.PreencherDescricaoProjeto();
+            managePage.ClicarAdicionarProjeto();
+            Assert.AreEqual("Operação realizada com sucesso.", managePage.MenssagemSucesso());
+            
+
+        }
+
 
     }
 }

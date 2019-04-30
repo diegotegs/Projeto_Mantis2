@@ -1,4 +1,5 @@
 ﻿using CSharpSeleniumTemplate.Bases;
+using CSharpSeleniumTemplate.Helpers;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,13 @@ namespace CSharpSeleniumTemplate.Pages
         By btnRefresh = By.XPath("//input[@value='Atualizar']");
         By linkManageSetting = By.LinkText("Gerenciar Configuração");
         By btnPermissionReport = By.LinkText("Relatório de Permissões");
+        By fieldNameProject = By.Id("project-name");
+        By fieldDescription = By.Id("project-description");
+        By btnAddProject = By.XPath("//form[@id='manage-project-create-form']/div/div[3]/input");
+        By msgSucessfullCreateProject = By.XPath("//div[@id='main-container']/div[2]/div[2]/div/div/div/div[2]/p");
+        
+
+
 
         #endregion
 
@@ -49,7 +57,7 @@ namespace CSharpSeleniumTemplate.Pages
 
         public void ClicarGerenciarMarcadores()
         {
-            Click(linkManageMarkers);
+            Click(linkManageMarkers); 
         }
 
         public void ClicarGerenciarCamposPersonalizados()
@@ -70,6 +78,18 @@ namespace CSharpSeleniumTemplate.Pages
         {
             Click(linkManageSetting);
         }
+
+        public void ClicarNovoProjeto()
+        {
+            Click(btnCreateNewProject);
+        }
+
+        public void ClicarAdicionarProjeto()
+        {
+            Click(btnAddProject);
+        }
+
+
 
               
 
@@ -109,6 +129,23 @@ namespace CSharpSeleniumTemplate.Pages
             return ReturnIfElementIsDisplayed(btnPermissionReport);
         }
 
+        public string MenssagemSucesso()
+        {
+            return GetText(msgSucessfullCreateProject);
+        }
+
+
+        //Preencher Campo --------------------------------------------------------------------------------------------------
+        public void PreencherNomeProjeto()
+        {
+            SendKeys(fieldNameProject,"Test "+ GeneralHelpers.ReturnStringWithRandomNumbers(2));
+        }
+
+        public void PreencherDescricaoProjeto()
+        {
+            SendKeys(fieldDescription,GeneralHelpers.ReturnStringWithRandomCharacters(5));
+        }
+        
         #endregion
     }
 }

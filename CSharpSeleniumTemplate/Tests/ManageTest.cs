@@ -167,6 +167,52 @@ namespace CSharpSeleniumTemplate.Tests
 
         }
 
+        [Test]
+        public void CriarMarcadores()
+        {
+            #region Parameters
+            string usuario = Properties.Settings.Default.DEFAULT_USER;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            #endregion
+
+            loginFlows.EfetuarLogin(usuario, senha);
+
+            managePage.ClicarMenuGerenciar();
+            managePage.ClicarGerenciarMarcadores();           
+            managePage.PreencherNomeMarcadores();
+            managePage.PreecherDescricaoMarcadores();
+            managePage.ClicarCriarMarcadores();
+            Assert.AreEqual(managePage.confirmCreateMarkers, managePage.VerificarCriarMarcadores());
+        }
+
+        [Test]
+        public void ApagarMarcador()
+        {
+            #region Parameters
+            string usuario = Properties.Settings.Default.DEFAULT_USER;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            #endregion
+
+            loginFlows.EfetuarLogin(usuario, senha);
+
+            managePage.ClicarMenuGerenciar();
+            managePage.ClicarGerenciarMarcadores();
+
+            Assume.That(managePage.VErificarSeExisteMarcadores());
+
+            managePage.GetQuantidadeDeRegistro();
+            managePage.ClicarMarcadorParaApagar();
+            managePage.ClicarApagarMarcador();
+            managePage.ClicarApagarMarcador();
+            Assert.Greater(Convert.ToInt32(managePage.qtsRegister), Convert.ToInt32(managePage.qtsRegister)-1);
+
+
+        }
+
+      
+
+
+
 
     }
 }

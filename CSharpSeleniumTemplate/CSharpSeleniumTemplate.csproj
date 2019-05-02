@@ -102,8 +102,10 @@
     <Compile Include="Helpers\GeneralHelpers.cs" />
     <Compile Include="Pages\ChangeLogPage.cs" />
     <Compile Include="Pages\CreateTaskPage.cs" />
+    <Compile Include="Pages\InviteUserPage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\ManagePage.cs" />
+    <Compile Include="Pages\PlanningPage.cs" />
     <Compile Include="Pages\ViewTaskPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -118,8 +120,10 @@
     </Compile>
     <Compile Include="Tests\ChangeLogTest.cs" />
     <Compile Include="Tests\CreateTaskTest.cs" />
+    <Compile Include="Tests\InviteUserTest.cs" />
     <Compile Include="Tests\LoginTests.cs" />
     <Compile Include="Tests\ManageTest.cs" />
+    <Compile Include="Tests\PlanningTest.cs" />
     <Compile Include="Tests\ViewTaskTest.cs" />
   </ItemGroup>
   <ItemGroup />

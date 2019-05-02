@@ -86,6 +86,7 @@ namespace CSharpSeleniumTemplate.Bases
             WaitForElement(locator).SendKeys(text);
             ExtentReportHelpers.AddTestInfo(3, "PARAMETER: " + text);
         }
+     
 
         protected void Clear(By locator)
         {

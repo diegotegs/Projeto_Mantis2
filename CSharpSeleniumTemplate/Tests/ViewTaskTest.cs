@@ -39,7 +39,7 @@ namespace CSharpSeleniumTemplate.Tests
             viewTaskPage.ClicarApagarTarefa();
             viewTaskPage.PreencherFiltroComIDItemExcluido();
             viewTaskPage.clicarAplicarFiltro();
-            Assert.False(viewTaskPage.attributeIDConfirmDelete.Equals(viewTaskPage.VerificarElementoSeExiste()));
+            Assert.False(viewTaskPage.VerificarElementoSeExiste());
             
             
 

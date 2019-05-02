@@ -12,28 +12,40 @@ namespace CSharpSeleniumTemplate.Pages
    public class ManagePage : PageBase
     {
         #region Mapping
-        By menuManage = By.CssSelector("i.menu-icon.fa.fa-gears");
-        By linkManageUser = By.LinkText("Gerenciar Usuários");
+        //Botoes --------------------------------------------------
         By btnCreateNewAccount = By.XPath("//div[@id='manage-user-div']/div/form/fieldset/button");
-        By linkManageProject = By.LinkText("Gerenciar Projetos");
+        By btnNewField = By.XPath("//input[@value='Novo Campo Personalizado']");
         By btnCreateNewProject = By.XPath("//button[@type='submit']");
+        By btnAddProfile = By.XPath("//input[@value='Adicionar Perfil']");
+        By btnRefresh = By.XPath("//input[@value='Atualizar']");
+        By btnPermissionReport = By.LinkText("Relatório de Permissões");
+        By btnAddProject = By.XPath("//form[@id='manage-project-create-form']/div/div[3]/input");
+        By btnDeleteProject = By.XPath("//input[@value='Apagar Projeto']");
+        By btnCreateMarkers = By.Name("config_set");
+        By btnDeleteMarkers = By.XPath("//input[@value='Apagar Marcador']"); 
+
+        //Links
+        By linkManageUser = By.LinkText("Gerenciar Usuários");
+        By linkManageProject = By.LinkText("Gerenciar Projetos");
         By linkManageMarkers = By.LinkText("Gerenciar Marcadores");        
         By linkAllMarkers = By.LinkText("TODAS");
         By linkManageFiled = By.LinkText("Gerenciar Campos Personalizados");
-        By btnNewField = By.XPath("//input[@value='Novo Campo Personalizado']");
         By linkProfileGlobal = By.LinkText("Gerenciar Perfís Globais");
-        By btnAddProfile = By.XPath("//input[@value='Adicionar Perfil']");
         By linkManagePlugins = By.LinkText("Gerenciar Plugins");
-        By btnRefresh = By.XPath("//input[@value='Atualizar']");
         By linkManageSetting = By.LinkText("Gerenciar Configuração");
-        By btnPermissionReport = By.LinkText("Relatório de Permissões");
+        //campos
         By fieldNameProject = By.Id("project-name");
         By fieldDescription = By.Id("project-description");
-        By btnAddProject = By.XPath("//form[@id='manage-project-create-form']/div/div[3]/input");
+        By fieldNameMarkers = By.Id("tag-name");
+        By fieldDescriptionMarkers = By.Id("tag-description");
+        //outros
+        By menuManage = By.CssSelector("i.menu-icon.fa.fa-gears");
         By msgSucessfullCreateProject = By.XPath("//div[@id='main-container']/div[2]/div[2]/div/div/div/div[2]/p");
         By firstFieldTable = By.XPath("//td/a");
-        By btnDeleteProject = By.XPath("//input[@value='Apagar Projeto']");
-        
+        By qtsRegisterInTableMarkers = By.XPath("//h4/span");
+        //Variaveis de controle
+        public string confirmCreateMarkers;
+        public string qtsRegister;
 
 
 
@@ -105,7 +117,21 @@ namespace CSharpSeleniumTemplate.Pages
         {
             Click(btnDeleteProject);
         }
+        
+        public void ClicarCriarMarcadores()
+        {
+            Click(btnCreateMarkers);
+        }
 
+        public void ClicarMarcadorParaApagar()
+        {
+            Click(firstFieldTable);
+        }
+
+        public void ClicarApagarMarcador()
+        {
+            Click(btnDeleteMarkers);
+        }
 
 
               
@@ -156,6 +182,24 @@ namespace CSharpSeleniumTemplate.Pages
             return ReturnIfElementExists(firstFieldTable);
         }
 
+        public string VerificarCriarMarcadores()
+        {
+           return GetText(By.LinkText(confirmCreateMarkers));
+          
+        }
+
+        public bool VErificarSeExisteMarcadores()
+        {
+            return ReturnIfElementExists(firstFieldTable);
+        }
+
+        public void GetQuantidadeDeRegistro()
+        {
+
+            qtsRegister = GetText(qtsRegisterInTableMarkers);
+            
+        }
+
         //Preencher Campo --------------------------------------------------------------------------------------------------
         public void PreencherNomeProjeto()
         {
@@ -165,6 +209,17 @@ namespace CSharpSeleniumTemplate.Pages
         public void PreencherDescricaoProjeto()
         {
             SendKeys(fieldDescription,GeneralHelpers.ReturnStringWithRandomCharacters(5));
+        }
+
+        public void PreencherNomeMarcadores()
+        {
+            confirmCreateMarkers =  "Test " + GeneralHelpers.ReturnStringWithRandomNumbers(2);
+            SendKeys(fieldNameMarkers,confirmCreateMarkers);
+        }
+
+        public void PreecherDescricaoMarcadores()
+        {
+            SendKeys(fieldDescriptionMarkers, "Test "+ GeneralHelpers.ReturnStringWithRandomCharacters(5));
         }
         
         #endregion

@@ -17,6 +17,7 @@ namespace CSharpSeleniumTemplate.Tests
         #region Pages and Flows Objects
         [AutoInstance] ManagePage managePage;
         [AutoInstance] LoginFlows loginFlows;
+        [AutoInstance] ManageSettingFlows manageSettingFlows;
         #endregion
 
         [Test]
@@ -119,8 +120,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             loginFlows.EfetuarLogin(usuario, senha);
 
-            managePage.ClicarMenuGerenciar();
-            managePage.ClicarGerenciarConfiguracoes();
+            manageSettingFlows.GerenciarConfiguracaoSubsMenu();
             Assert.That(managePage.VerificarExistenciaDoBotaoRelatoriosDePermissoes());
         }
 
@@ -209,7 +209,82 @@ namespace CSharpSeleniumTemplate.Tests
 
         }
 
-      
+        [Test]
+        public void VerificarAbaRelatorioDeConfiguracao()
+        {
+            #region Parameters
+            string usuario = Properties.Settings.Default.DEFAULT_USER;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            #endregion
+
+            loginFlows.EfetuarLogin(usuario, senha);
+
+            manageSettingFlows.GerenciarConfiguracaoSubsMenu();
+            managePage.ClicarRelatorioDeConfiguracao();
+            Assert.True(managePage.GetBotaoCriarOpcaoDeConfiguracao());
+        }
+
+        [Test]
+        public void VerificarAbaLiminaresDeFluxoDeTrabalho()
+        {
+            #region Parameters
+            string usuario = Properties.Settings.Default.DEFAULT_USER;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            #endregion
+
+            loginFlows.EfetuarLogin(usuario, senha);
+
+            manageSettingFlows.GerenciarConfiguracaoSubsMenu();
+            managePage.ClicarLiminaresFluxoDeTrabalho();
+            Assert.True(managePage.GetBotaoAtualizarConfiguracao());
+        }
+
+        [Test]
+        public void VerificarAbaTransicoesDeFluxoDeTrabalho()
+        {
+            #region Parameters
+            string usuario = Properties.Settings.Default.DEFAULT_USER;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            #endregion
+
+            loginFlows.EfetuarLogin(usuario, senha);
+
+            manageSettingFlows.GerenciarConfiguracaoSubsMenu();
+            managePage.ClicarTransicoesFluxoDeTrabalho();
+            Assert.True(managePage.GetBotaoAtualizarConfiguracao());
+        }
+
+        [Test]
+        public void VerificarAbaNotificacaoPorEmail()
+        {
+            #region Parameters
+            string usuario = Properties.Settings.Default.DEFAULT_USER;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            #endregion
+
+            loginFlows.EfetuarLogin(usuario, senha);
+
+            manageSettingFlows.GerenciarConfiguracaoSubsMenu();
+            managePage.ClicarNotificacaoPorEmail();
+            Assert.True(managePage.GetBotaoAtualizarConfiguracao());
+        }
+
+        [Test]
+        public void VerificarAbaGerenciarColunas()
+        {
+            #region Parameters
+            string usuario = Properties.Settings.Default.DEFAULT_USER;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            #endregion
+
+            loginFlows.EfetuarLogin(usuario, senha);
+
+            manageSettingFlows.GerenciarConfiguracaoSubsMenu();
+            managePage.ClicarGerenciarColunas();
+            Assert.True(managePage.GetBotaoAtualizarColunas());
+        }
+
+
 
 
 

@@ -47,13 +47,17 @@ namespace CSharpSeleniumTemplate.Pages
             return GetText(validateLink);
         }
       
-        public string RetornarMsg(string atributo)
+        public string RetornarMsgDescricao(string atributo)
         {
             return GetAttribute(descriptionField,atributo);
         }
-        
 
-       
+        public string RetornarMsgResumo(string atributo)
+        {
+            return GetAttribute(summaryField, atributo);
+        }
+
+
 
 
 

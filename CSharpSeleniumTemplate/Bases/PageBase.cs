@@ -109,6 +109,13 @@ namespace CSharpSeleniumTemplate.Bases
             ExtentReportHelpers.AddTestInfo(3, "PARAMETER: " + text);
         }
 
+        protected void ComboBoxSelectByVisibleIndex(By locator, int location)
+        {
+            OpenQA.Selenium.Support.UI.SelectElement comboBox = new OpenQA.Selenium.Support.UI.SelectElement(WaitForElement(locator));
+            comboBox.SelectByIndex(location);
+            ExtentReportHelpers.AddTestInfo(3, "PARAMETER: " + location);
+        }       
+
         protected void MouseOver(By locator)
         {
             Actions action = new Actions(driver);
@@ -173,11 +180,13 @@ namespace CSharpSeleniumTemplate.Bases
             bool result = driver.FindElement(locator).Selected;
             ExtentReportHelpers.AddTestInfo(3, "RETURN: " + result);
             return result;
-        }
-        #endregion
+        }       
 
-        #region JavaScript Actions
-        protected void SendKeysJavaScript(By locator, string value)
+
+    #endregion
+
+    #region JavaScript Actions
+    protected void SendKeysJavaScript(By locator, string value)
         {
             wait.Until(ExpectedConditions.ElementExists(locator));
             IWebElement element = driver.FindElement(locator);

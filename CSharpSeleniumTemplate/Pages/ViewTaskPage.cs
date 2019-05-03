@@ -12,17 +12,19 @@ namespace CSharpSeleniumTemplate.Pages
     public class ViewTaskPage : PageBase
     {
         #region Mapping
-        By viewTaskMenu = By.CssSelector("i.menu-icon.fa.fa-list-alt");
-        By checkBoxTast = By.CssSelector("span.lbl");
-        By delete = By.Name("action");
         By bntOk = By.XPath("//div[2]/div[2]/div/input");
-        By btnConfirmDelete = By.XPath("//div[2]/input");
-        By conteudoId = By.XPath("//table[@id='buglist']/tbody/tr/td[4]");
-        By FilterField = By.Id("filter-search-txt");
+        By btnConfirm = By.XPath("//div[2]/input");
         By btnApplicationFilter = By.XPath("//div/input[2]");
+        By comboBoxViewTask = By.Name("action");
+        By comboBoxChooseUser = By.Name("assign");
+        By checkBoxTast = By.CssSelector("span.lbl");
+        By conteudoId = By.XPath("//table[@id='buglist']/tbody/tr/td[4]");
+        By viewTaskMenu = By.CssSelector("i.menu-icon.fa.fa-list-alt");
         By contentConfirmDelete = By.XPath("//div[@id='action-group-div']/form/div/div[2]/div/div/table/tbody/tr[4]/td");
+        By FilterField = By.Id("filter-search-txt");
         public string attributeIDConfirmDelete;
         public string recoverAttributeTableOne;
+        public int valueComboBox;
         #endregion
 
         #region Actions
@@ -44,7 +46,7 @@ namespace CSharpSeleniumTemplate.Pages
 
         public void ClicarApagarTarefa()
         {
-            Click(btnConfirmDelete);
+            Click(btnConfirm);
         }
 
         public void clicarAplicarFiltro()
@@ -62,9 +64,18 @@ namespace CSharpSeleniumTemplate.Pages
 
         public void SelecionarApagar()
         {
-            ComboBoxSelectByVisibleText(delete, "Apagar");
+            ComboBoxSelectByVisibleText(comboBoxViewTask, "Apagar");
         }
 
+        public void SelecionarAtribuir()
+        {
+            ComboBoxSelectByVisibleText(comboBoxViewTask,"Atribuir");
+        }
+
+        public void SelecionarUsuarioParaAtribuirTarefa()
+        {
+            ComboBoxSelectByVisibleIndex(comboBoxChooseUser, 1);
+        }
 
 
         //Verificar ----------------------------------------------------------------------------------------------------
@@ -78,8 +89,8 @@ namespace CSharpSeleniumTemplate.Pages
         {
             return GetText(conteudoId);
         }
-
-        //Recuperar Valor de atributos --------------------------------------------------------------------------------
+        
+       // Recuperar Valor de atributos --------------------------------------------------------------------------------
 
         public void GetConteudoConfirmarDelete()
         {

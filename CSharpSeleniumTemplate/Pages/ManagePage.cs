@@ -22,7 +22,11 @@ namespace CSharpSeleniumTemplate.Pages
         By btnAddProject = By.XPath("//form[@id='manage-project-create-form']/div/div[3]/input");
         By btnDeleteProject = By.XPath("//input[@value='Apagar Projeto']");
         By btnCreateMarkers = By.Name("config_set");
-        By btnDeleteMarkers = By.XPath("//input[@value='Apagar Marcador']"); 
+        By btnDeleteMarkers = By.XPath("//input[@value='Apagar Marcador']");
+        By btnCreateOptionSetting = By.Name("config_set");
+        By btnRefreshSetting = By.XPath("//input[@value='Atualizar Configuração']");
+        By btnUpdateColumns = By.Name("update_columns_as_global_default");
+
 
         //Links
         By linkManageUser = By.LinkText("Gerenciar Usuários");
@@ -33,6 +37,16 @@ namespace CSharpSeleniumTemplate.Pages
         By linkProfileGlobal = By.LinkText("Gerenciar Perfís Globais");
         By linkManagePlugins = By.LinkText("Gerenciar Plugins");
         By linkManageSetting = By.LinkText("Gerenciar Configuração");
+        By linkReportSetting = By.LinkText("Relatório de Configuração");
+        By linkFlowWork = By.LinkText("Limiares do Fluxo de Trabalho");
+        By linkTransitionsFlowWord = By.LinkText("Transições de Fluxo de Trabalho");
+        By linkNotificationEmail = By.LinkText("Notificações por E-Mail");
+        By linkManageColumns = By.LinkText("Gerenciar Colunas");
+
+
+
+
+
         //campos
         By fieldNameProject = By.Id("project-name");
         By fieldDescription = By.Id("project-description");
@@ -47,12 +61,9 @@ namespace CSharpSeleniumTemplate.Pages
         public string confirmCreateMarkers;
         public string qtsRegister;
 
-
-
         #endregion
 
         #region Actions
-
         //Clicar -------------------------------------------------------------------------------------------------------
         public void ClicarMenuGerenciar()
         {
@@ -132,7 +143,33 @@ namespace CSharpSeleniumTemplate.Pages
         {
             Click(btnDeleteMarkers);
         }
+        
+        public void ClicarRelatorioDeConfiguracao()
+        {
+            Click(linkReportSetting);
+        }
 
+        public void ClicarLiminaresFluxoDeTrabalho()
+        {
+            Click(linkFlowWork);
+        }
+
+        public void ClicarTransicoesFluxoDeTrabalho()
+        {
+            Click(linkTransitionsFlowWord);
+        }
+
+        public void ClicarNotificacaoPorEmail()
+        {
+            Click(linkNotificationEmail);
+        }
+
+        public void ClicarGerenciarColunas()
+        {
+            Click(linkManageColumns);
+        }
+
+       
 
               
 
@@ -198,6 +235,21 @@ namespace CSharpSeleniumTemplate.Pages
 
             qtsRegister = GetText(qtsRegisterInTableMarkers);
             
+        }
+
+        public bool GetBotaoCriarOpcaoDeConfiguracao()
+        {
+            return ReturnIfElementIsDisplayed(btnCreateOptionSetting);
+        }
+
+        public bool GetBotaoAtualizarConfiguracao()
+        {
+            return ReturnIfElementIsDisplayed(btnRefreshSetting);
+        }
+
+        public bool GetBotaoAtualizarColunas()
+        {
+            return ReturnIfElementIsDisplayed(btnUpdateColumns);
         }
 
         //Preencher Campo --------------------------------------------------------------------------------------------------

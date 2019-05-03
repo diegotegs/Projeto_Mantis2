@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSharpSeleniumTemplate.Tests
@@ -18,6 +19,7 @@ namespace CSharpSeleniumTemplate.Tests
         #region Pages and Flows Objects
         [AutoInstance] CreateTaskPage createTaskPage;
         [AutoInstance] LoginFlows loginFlows;
+        [AutoInstance] CreateTaskFlows createTaskFlows;
         #endregion
 
         #region Data Driven Providers
@@ -37,11 +39,9 @@ namespace CSharpSeleniumTemplate.Tests
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             #endregion
             loginFlows.EfetuarLogin(usuario,senha);
-            createTaskPage.ClicarMenuNovaTarefa();
-            createTaskPage.ClicarIdentificador();
-            createTaskPage.PreencherResumo(resumo);
-            createTaskPage.ClicarCriarNovaTarefa();           
-            Assert.AreEqual("Preencha este campo.",createTaskPage.RetornarMsg("validationMessage"));
+
+            createTaskFlows.CrairTarefa(resumo,"");            
+            Assert.AreEqual("Preencha este campo.",createTaskPage.RetornarMsgDescricao("validationMessage"));
 
 
         }
@@ -54,12 +54,10 @@ namespace CSharpSeleniumTemplate.Tests
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             #endregion
             loginFlows.EfetuarLogin(usuario, senha);
-            createTaskPage.ClicarMenuNovaTarefa();
-            createTaskPage.ClicarIdentificador();
-            createTaskPage.PreencherResumo(descricao);
-            createTaskPage.ClicarCriarNovaTarefa();
-            Assert.AreEqual("Preencha este campo.", createTaskPage.RetornarMsg("validationMessage"));
 
+            createTaskFlows.CrairTarefa("", descricao);            
+            Assert.AreEqual("Preencha este campo.", createTaskPage.RetornarMsgResumo("validationMessage"));
+            
 
         }
         [Test]
@@ -73,11 +71,8 @@ namespace CSharpSeleniumTemplate.Tests
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
-            createTaskPage.ClicarMenuNovaTarefa();
-            createTaskPage.ClicarIdentificador();
-            createTaskPage.PreencherResumo(resumo);
-            createTaskPage.PreencherDescricao(descricao);
-            createTaskPage.ClicarCriarNovaTarefa();
+
+            createTaskFlows.CrairTarefa(resumo, descricao);
             Assert.That(createTaskPage.ValidarCriarTarefa().Contains("sucesso"));
 
         }
@@ -95,11 +90,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             loginFlows.EfetuarLogin(usuario, senha);
 
-            createTaskPage.ClicarMenuNovaTarefa();
-            createTaskPage.ClicarIdentificador();
-            createTaskPage.PreencherResumo(resumo);
-            createTaskPage.PreencherDescricao(descricao);
-            createTaskPage.ClicarCriarNovaTarefa();
+            createTaskFlows.CrairTarefa(resumo,descricao); 
             Assert.That(createTaskPage.ValidarCriarTarefa().Contains("sucesso"));
         }
 

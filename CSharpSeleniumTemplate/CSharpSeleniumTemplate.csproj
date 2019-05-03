@@ -94,12 +94,15 @@
     <Compile Include="Bases\PageBase.cs" />
     <Compile Include="Bases\TestBase.cs" />
     <Compile Include="DataBaseSteps\UsuariosDBSteps.cs" />
+    <Compile Include="Flows\CreateTaskFlows.cs" />
     <Compile Include="Flows\LoginFlows.cs" />
+    <Compile Include="Flows\ManageSettingFlows.cs" />
     <Compile Include="Helpers\AutoInstance.cs" />
     <Compile Include="Helpers\DataBaseHelpers.cs" />
     <Compile Include="Helpers\DriverFactory.cs" />
     <Compile Include="Helpers\ExtentReportHelpers.cs" />
     <Compile Include="Helpers\GeneralHelpers.cs" />
+    <Compile Include="Pages\AccountPage.cs" />
     <Compile Include="Pages\ChangeLogPage.cs" />
     <Compile Include="Pages\CreateTaskPage.cs" />
     <Compile Include="Pages\InviteUserPage.cs" />
@@ -118,6 +121,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UsuariosQueries.resx</DependentUpon>
     </Compile>
+    <Compile Include="Tests\AccountTest.cs" />
     <Compile Include="Tests\ChangeLogTest.cs" />
     <Compile Include="Tests\CreateTaskTest.cs" />
     <Compile Include="Tests\InviteUserTest.cs" />

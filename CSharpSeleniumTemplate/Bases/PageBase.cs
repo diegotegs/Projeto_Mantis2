@@ -86,7 +86,14 @@ namespace CSharpSeleniumTemplate.Bases
             WaitForElement(locator).SendKeys(text);
             ExtentReportHelpers.AddTestInfo(3, "PARAMETER: " + text);
         }
-     
+
+        protected void SendKeysArrowDown(By locator)
+        {
+
+            WaitForElement(locator).SendKeys(Keys.ArrowDown);
+            ExtentReportHelpers.AddTestInfo(3, "PARAMETER: " + Keys.ArrowDown);
+        }
+
 
         protected void Clear(By locator)
         {
@@ -114,7 +121,14 @@ namespace CSharpSeleniumTemplate.Bases
             OpenQA.Selenium.Support.UI.SelectElement comboBox = new OpenQA.Selenium.Support.UI.SelectElement(WaitForElement(locator));
             comboBox.SelectByIndex(location);
             ExtentReportHelpers.AddTestInfo(3, "PARAMETER: " + location);
-        }       
+        }
+        
+        protected int ReturnAmountElementInComboBox(By locator)
+        {
+            OpenQA.Selenium.Support.UI.SelectElement comboBox = new OpenQA.Selenium.Support.UI.SelectElement(WaitForElement(locator));
+            int count = comboBox.Options.Count;
+            return count;
+        }
 
         protected void MouseOver(By locator)
         {

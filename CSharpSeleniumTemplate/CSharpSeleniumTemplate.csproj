@@ -94,8 +94,10 @@
     <Compile Include="Bases\PageBase.cs" />
     <Compile Include="Bases\TestBase.cs" />
     <Compile Include="DataBaseSteps\UsuariosDBSteps.cs" />
+    <Compile Include="Flows\AccountPageFlows.cs" />
     <Compile Include="Flows\CreateTaskFlows.cs" />
     <Compile Include="Flows\LoginFlows.cs" />
+    <Compile Include="Flows\ManageFieldCustomFlows.cs" />
     <Compile Include="Flows\ManageSettingFlows.cs" />
     <Compile Include="Helpers\AutoInstance.cs" />
     <Compile Include="Helpers\DataBaseHelpers.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Pages\CreateTaskPage.cs" />
     <Compile Include="Pages\InviteUserPage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\ManageFieldCustomPage.cs" />
     <Compile Include="Pages\ManagePage.cs" />
     <Compile Include="Pages\PlanningPage.cs" />
     <Compile Include="Pages\ViewTaskPage.cs" />
@@ -126,6 +129,7 @@
     <Compile Include="Tests\CreateTaskTest.cs" />
     <Compile Include="Tests\InviteUserTest.cs" />
     <Compile Include="Tests\LoginTests.cs" />
+    <Compile Include="Tests\ManageFieldCustomTest.cs" />
     <Compile Include="Tests\ManageTest.cs" />
     <Compile Include="Tests\PlanningTest.cs" />
     <Compile Include="Tests\ViewTaskTest.cs" />

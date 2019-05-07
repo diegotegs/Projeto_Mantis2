@@ -15,7 +15,7 @@ namespace CSharpSeleniumTemplate.Bases
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            ExtentReportHelpers.CreateReport();
+            ExtentReportHelpers.CreateReport();            
         }
 
         [SetUp]

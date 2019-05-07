@@ -48,6 +48,8 @@ namespace CSharpSeleniumTemplate.Helpers
                             chrome.AddArgument("no-sandbox");
                             chrome.AddArgument("--allow-running-insecure-content");
                             chrome.AddArgument("--lang=pt-BR");
+                            chrome.AddArgument("headless");
+                            chrome.AddArgument("--window-size=1920,1080");
 
                             INSTANCE = new RemoteWebDriver(new Uri(seleniumHub), chrome.ToCapabilities());
                         }

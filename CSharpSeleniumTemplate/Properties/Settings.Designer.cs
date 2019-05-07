@@ -37,30 +37,6 @@ namespace CSharpSeleniumTemplate.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("local")]
-        public string EXECUTION {
-            get {
-                return ((string)(this["EXECUTION"]));
-            }
-            set {
-                this["EXECUTION"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SELENIUM_HUB {
-            get {
-                return ((string)(this["SELENIUM_HUB"]));
-            }
-            set {
-                this["SELENIUM_HUB"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("30")]
         public string DEFAULT_TIMEOUT_IN_SECONDS {
             get {
@@ -200,6 +176,30 @@ namespace CSharpSeleniumTemplate.Properties {
             }
             set {
                 this["DEFAUL_APPLICATION_URL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("remota")]
+        public string EXECUTION {
+            get {
+                return ((string)(this["EXECUTION"]));
+            }
+            set {
+                this["EXECUTION"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.99.100:4444/wd/hub")]
+        public string SELENIUM_HUB {
+            get {
+                return ((string)(this["SELENIUM_HUB"]));
+            }
+            set {
+                this["SELENIUM_HUB"] = value;
             }
         }
     }

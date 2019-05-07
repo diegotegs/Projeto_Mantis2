@@ -26,6 +26,7 @@ namespace CSharpSeleniumTemplate.Pages
         By btnCreateOptionSetting = By.Name("config_set");
         By btnRefreshSetting = By.XPath("//input[@value='Atualizar Configuração']");
         By btnUpdateColumns = By.Name("update_columns_as_global_default");
+        By btnAddCategory = By.XPath("//input[@value='Adicionar Categoria']");
 
 
         //Links
@@ -52,11 +53,16 @@ namespace CSharpSeleniumTemplate.Pages
         By fieldDescription = By.Id("project-description");
         By fieldNameMarkers = By.Id("tag-name");
         By fieldDescriptionMarkers = By.Id("tag-description");
+        By fieldCategory = By.Name("name");
+        
         //outros
         By menuManage = By.CssSelector("i.menu-icon.fa.fa-gears");
         By msgSucessfullCreateProject = By.XPath("//div[@id='main-container']/div[2]/div[2]/div/div/div/div[2]/p");
+        By msgError = By.XPath("//div[@id='main-container']/div[2]/div[2]/div/div/div[2]/p[2]");
         By firstFieldTable = By.XPath("//td/a");
         By qtsRegisterInTableMarkers = By.XPath("//h4/span");
+        By firstCategoryInTable = By.XPath("//div[@id='categories']/div/div[2]/div/div/table/tbody/tr/td");
+
         //Variaveis de controle
         public string confirmCreateMarkers;
         public string qtsRegister;
@@ -169,6 +175,11 @@ namespace CSharpSeleniumTemplate.Pages
             Click(linkManageColumns);
         }
 
+        public void ClicarAdicionarCategoria()
+        {
+            Click(btnAddCategory);
+        }
+
        
 
               
@@ -252,6 +263,18 @@ namespace CSharpSeleniumTemplate.Pages
             return ReturnIfElementIsDisplayed(btnUpdateColumns);
         }
 
+        public string MenssagemDeErro()
+        {
+            return GetText(msgError);
+        }  
+
+        public string RetornarPrimeiroElementoDaTabela()
+        {
+            return GetText(firstCategoryInTable);
+        }
+
+
+
         //Preencher Campo --------------------------------------------------------------------------------------------------
         public void PreencherNomeProjeto()
         {
@@ -273,6 +296,13 @@ namespace CSharpSeleniumTemplate.Pages
         {
             SendKeys(fieldDescriptionMarkers, "Test "+ GeneralHelpers.ReturnStringWithRandomCharacters(5));
         }
+
+        public void PreencherCampoCategoria()
+        {
+            SendKeys(fieldCategory,RetornarPrimeiroElementoDaTabela());
+        }
+
+
         
         #endregion
     }

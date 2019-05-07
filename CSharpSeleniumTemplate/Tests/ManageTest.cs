@@ -168,6 +168,42 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        public void CriarCategoriaSemNome()
+        {
+            #region Parameters
+            string usuario = Properties.Settings.Default.DEFAULT_USER;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            #endregion
+
+            loginFlows.EfetuarLogin(usuario, senha);
+
+            managePage.ClicarMenuGerenciar();
+            managePage.ClicarGerenciarProjeto();
+            managePage.ClicarAdicionarCategoria();
+            Assert.True(managePage.MenssagemDeErro().Contains("Um campo necessário 'Categoria' estava vazio."));
+        }
+
+        [Test]
+        public void CriarCategoriaRepetida()
+        {
+            #region Parameters
+            string usuario = Properties.Settings.Default.DEFAULT_USER;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            #endregion
+
+            loginFlows.EfetuarLogin(usuario, senha);
+
+            managePage.ClicarMenuGerenciar();
+            managePage.ClicarGerenciarProjeto();           
+            managePage.PreencherCampoCategoria();
+            managePage.ClicarAdicionarCategoria();
+            Assert.True(managePage.MenssagemDeErro().Contains("Uma categoria com este nome já existe."));
+
+
+        }
+  
+
+        [Test]
         public void CriarMarcadores()
         {
             #region Parameters
@@ -284,7 +320,7 @@ namespace CSharpSeleniumTemplate.Tests
             Assert.True(managePage.GetBotaoAtualizarColunas());
         }
 
-
+        
 
 
 

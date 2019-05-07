@@ -52,5 +52,50 @@ namespace CSharpSeleniumTemplate.Tests
 
             Assert.True(manageFieldCustomPage.RetornaMsgDeErro().Contains("Um campo necessário 'name' estava vazio."));
         }
+
+        [Test]
+        public void AdicionarCampoComOMesmoNomeDoExistente()
+        {
+            #region Parameters
+            string usuario = Properties.Settings.Default.DEFAULT_USER;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+
+            #endregion
+
+            loginFlows.EfetuarLogin(usuario, senha);
+
+            manageFieldCustomFlows.GerarCamposPersonalizados();
+
+            Assume.That(manageFieldCustomPage.VerificarSeExisteCampoPersonalizado());
+
+            manageFieldCustomPage.AdicionarElementoRepetidoNaTabela();
+            manageFieldCustomPage.ClicarNovoCampoPersonalizado();
+
+            Assert.True(manageFieldCustomPage.RetornaMsgDeErro().Contains("Este é um nome duplicado."));
+        }
+
+        [Test]
+        public void ExcluirCampoPersonalizado()
+        {
+            #region Parameters
+            string usuario = Properties.Settings.Default.DEFAULT_USER;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+
+            #endregion
+
+            loginFlows.EfetuarLogin(usuario, senha);
+
+            manageFieldCustomFlows.GerarCamposPersonalizados();
+
+            Assume.That(manageFieldCustomPage.VerificarSeExisteCampoPersonalizado());
+
+            manageFieldCustomPage.ClicarPrimeiroCampoPersonalizado();
+            manageFieldCustomPage.ClicarApagarCampoPersonalizado();
+            manageFieldCustomPage.ClicarConfirmarDelete();
+            Assert.AreEqual("Operação realizada com sucesso.",manageFieldCustomPage.RetornoMSgSucesso());
+        }
+
+
+
     }
 }

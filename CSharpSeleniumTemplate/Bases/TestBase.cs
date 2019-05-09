@@ -7,6 +7,7 @@ using Castle.DynamicProxy;
 using NUnit.Framework;
 using System.Reflection;
 using CSharpSeleniumTemplate.Helpers;
+using CSharpSeleniumTemplate.DataBaseSteps;
 
 namespace CSharpSeleniumTemplate.Bases
 {
@@ -15,7 +16,11 @@ namespace CSharpSeleniumTemplate.Bases
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            ExtentReportHelpers.CreateReport();            
+            ExtentReportHelpers.CreateReport();
+
+               CreateProjectDBSteps.CriarProjetoBD("Test "+GeneralHelpers.ReturnStringWithRandomCharacters(3),
+               "Descricao "+ GeneralHelpers.ReturnStringWithRandomCharacters(3));
+            
         }
 
         [SetUp]
@@ -25,6 +30,8 @@ namespace CSharpSeleniumTemplate.Bases
             DriverFactory.CreateInstance();
             DriverFactory.INSTANCE.Manage().Window.Maximize();
             DriverFactory.INSTANCE.Navigate().GoToUrl(Properties.Settings.Default.DEFAUL_APPLICATION_URL);
+           
+
 
             #region [AutoInstance] atribute methods calls to auto instace pages and flows
             //Necessário para realizar a instanciação automática das páginas e fluxos
@@ -38,13 +45,16 @@ namespace CSharpSeleniumTemplate.Bases
         {
             ExtentReportHelpers.AddTestResult();          
             DriverFactory.QuitInstace();
+            
+
         }
 
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
             ExtentReportHelpers.GenerateReport();
-            
+            DataBaseHelpers.ExecuteQuery("TRUNCATE TABLE  mantis_project_table ;");
+
         }
 
         #region Methodes needed to auto intance pages and flows [AutoInstance]

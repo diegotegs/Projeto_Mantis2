@@ -133,7 +133,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             accountPageFlows.ClicarPerfil("","123","7");
             
-            Assert.AreEqual("Preencha este campo.",accountPage.GetMsgObrigatorioPlataforma("validationMessage"));
+            Assert.AreEqual("Please fill out this field.", accountPage.GetMsgObrigatorioPlataforma("validationMessage"));
         }
 
         [Test]
@@ -148,7 +148,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             accountPageFlows.ClicarPerfil("Test", "", "7");
             
-            Assert.AreEqual("Preencha este campo.", accountPage.GetMsgObrigatorioOS("validationMessage"));
+            Assert.AreEqual("Please fill out this field.", accountPage.GetMsgObrigatorioOS("validationMessage"));
         }
 
         [Test]
@@ -163,7 +163,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             accountPageFlows.ClicarPerfil("Test", "Test Os","");
            
-            Assert.AreEqual("Preencha este campo.", accountPage.GetMsgObrigatorioVersao("validationMessage"));
+            Assert.AreEqual("Please fill out this field.", accountPage.GetMsgObrigatorioVersao("validationMessage"));
         }
 
         [Test]

@@ -40,8 +40,8 @@ namespace CSharpSeleniumTemplate.Tests
             #endregion
             loginFlows.EfetuarLogin(usuario,senha);
 
-            createTaskFlows.CrairTarefa(resumo,"");            
-            Assert.AreEqual("Preencha este campo.",createTaskPage.RetornarMsgDescricao("validationMessage"));
+            createTaskFlows.CriarTarefa(resumo,"");            
+            Assert.AreEqual("Please fill out this field.", createTaskPage.RetornarMsgDescricao("validationMessage"));
 
 
         }
@@ -55,8 +55,8 @@ namespace CSharpSeleniumTemplate.Tests
             #endregion
             loginFlows.EfetuarLogin(usuario, senha);
 
-            createTaskFlows.CrairTarefa("", descricao);            
-            Assert.AreEqual("Preencha este campo.", createTaskPage.RetornarMsgResumo("validationMessage"));
+            createTaskFlows.CriarTarefa("", descricao);            
+            Assert.AreEqual("Please fill out this field.", createTaskPage.RetornarMsgResumo("validationMessage"));
             
 
         }
@@ -72,7 +72,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             loginFlows.EfetuarLogin(usuario, senha);
 
-            createTaskFlows.CrairTarefa(resumo, descricao);
+            createTaskFlows.CriarTarefa(resumo, descricao);
             Assert.That(createTaskPage.ValidarCriarTarefa().Contains("sucesso"));
 
         }
@@ -90,7 +90,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             loginFlows.EfetuarLogin(usuario, senha);
 
-            createTaskFlows.CrairTarefa(resumo,descricao); 
+            createTaskFlows.CriarTarefa(resumo,descricao); 
             Assert.That(createTaskPage.ValidarCriarTarefa().Contains("sucesso"));
         }
 

@@ -49,78 +49,6 @@ namespace CSharpSeleniumTemplate.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DB_URL {
-            get {
-                return ((string)(this["DB_URL"]));
-            }
-            set {
-                this["DB_URL"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DB_PORT {
-            get {
-                return ((string)(this["DB_PORT"]));
-            }
-            set {
-                this["DB_PORT"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DB_NAME {
-            get {
-                return ((string)(this["DB_NAME"]));
-            }
-            set {
-                this["DB_NAME"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DB_USER {
-            get {
-                return ((string)(this["DB_USER"]));
-            }
-            set {
-                this["DB_USER"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DB_PASSWORD {
-            get {
-                return ((string)(this["DB_PASSWORD"]));
-            }
-            set {
-                this["DB_PASSWORD"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DB_CONNECTION_TIMEOUT {
-            get {
-                return ((string)(this["DB_CONNECTION_TIMEOUT"]));
-            }
-            set {
-                this["DB_CONNECTION_TIMEOUT"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("CSharpSeleniumTemplateReport")]
         public string REPORT_NAME {
             get {
@@ -200,6 +128,78 @@ namespace CSharpSeleniumTemplate.Properties {
             }
             set {
                 this["SELENIUM_HUB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.99.100")]
+        public string DB_URL {
+            get {
+                return ((string)(this["DB_URL"]));
+            }
+            set {
+                this["DB_URL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3306")]
+        public string DB_PORT {
+            get {
+                return ((string)(this["DB_PORT"]));
+            }
+            set {
+                this["DB_PORT"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("bugtracker")]
+        public string DB_NAME {
+            get {
+                return ((string)(this["DB_NAME"]));
+            }
+            set {
+                this["DB_NAME"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("root")]
+        public string DB_USER {
+            get {
+                return ((string)(this["DB_USER"]));
+            }
+            set {
+                this["DB_USER"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("root")]
+        public string DB_PASSWORD {
+            get {
+                return ((string)(this["DB_PASSWORD"]));
+            }
+            set {
+                this["DB_PASSWORD"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        public string DB_CONNECTION_TIMEOUT {
+            get {
+                return ((string)(this["DB_CONNECTION_TIMEOUT"]));
+            }
+            set {
+                this["DB_CONNECTION_TIMEOUT"] = value;
             }
         }
     }

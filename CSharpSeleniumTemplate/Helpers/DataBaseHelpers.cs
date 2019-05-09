@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,22 +11,34 @@ namespace CSharpSeleniumTemplate.Helpers
 {
     public class DataBaseHelpers
     {
-        private static SqlConnection GetDBConnection()
+        private static MySqlConnection GetDBConnection()
         {
             string connectionString = "Data Source=" + Properties.Settings.Default.DB_URL + "," + Properties.Settings.Default.DB_PORT + ";" +
                                       "Initial Catalog=" + Properties.Settings.Default.DB_NAME + ";" +
                                       "User ID=" + Properties.Settings.Default.DB_USER + "; " +
                                       "Password=" + Properties.Settings.Default.DB_PASSWORD + ";";
 
-            SqlConnection connection = new SqlConnection(connectionString);
+            MySqlConnection connection = new MySqlConnection(connectionString);
 
             return connection;
         }
 
         public static void ExecuteQuery(string query)
         {
-            using (SqlCommand cmd = new SqlCommand(query, GetDBConnection()))
+            using (MySqlCommand cmd = new MySqlCommand(query, GetDBConnection()))
             {
+                cmd.CommandTimeout = Int32.Parse(Properties.Settings.Default.DB_CONNECTION_TIMEOUT);
+                cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
+                cmd.Connection.Close();
+            }
+        }
+
+        public static void ExecuteQuery()
+        {
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                 
                 cmd.CommandTimeout = Int32.Parse(Properties.Settings.Default.DB_CONNECTION_TIMEOUT);
                 cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -38,7 +51,7 @@ namespace CSharpSeleniumTemplate.Helpers
             DataSet ds = new DataSet();
             List<string> lista = new List<string>();
 
-            using (SqlCommand cmd = new SqlCommand(query, GetDBConnection()))
+            using (MySqlCommand cmd = new MySqlCommand(query, GetDBConnection()))
             {
                 cmd.CommandTimeout = Int32.Parse(Properties.Settings.Default.DB_CONNECTION_TIMEOUT);
                 cmd.Connection.Open();

@@ -22,8 +22,8 @@ namespace CSharpSeleniumTemplate.Pages
         By comboBoxViewTask = By.Name("action");
         By linkTaksMarkers = By.XPath("//table[@id='buglist']/tbody/tr/td[4]/a");
         By comboBoxChooseUser = By.Name("assign");
-        By checkBoxTast = By.CssSelector("span.lbl");
-        By contentId = By.XPath("//table[@id='buglist']/tbody/tr/td[4]");
+        By checkBoxTast = By.CssSelector("span.lbl"); 
+         By contentId = By.XPath("//table[@id='buglist']/tbody/tr/td[4]");
         By viewTaskMenu = By.CssSelector("i.menu-icon.fa.fa-list-alt");
         By contentConfirmDelete = By.XPath("//div[@id='action-group-div']/form/div/div[2]/div/div/table/tbody/tr[4]/td");
         By FilterField = By.Id("filter-search-txt");
@@ -32,7 +32,7 @@ namespace CSharpSeleniumTemplate.Pages
         By contentSolve = By.XPath("//div/span");
         By contentClose = By.XPath("//input[@value='Fechar Tarefas']");
         By fieldApplicationMarkers = By.Id("tag_string");
-        By markersOfTask = By.XPath("//div[@id='main-container']/div[2]/div[2]/div/div/div/div[2]/div[2]/div/table/tbody/tr[13]/td");
+        By markersOfTask = By.XPath("//div[@id='main-container']/div[2]/div[2]/div/div/div/div[2]/div[2]/div/table/tbody/tr[15]/td");
         By firstMarkerApplication = By.CssSelector("a.btn.btn-xs.btn-primary.btn-white.btn-round");
 
 

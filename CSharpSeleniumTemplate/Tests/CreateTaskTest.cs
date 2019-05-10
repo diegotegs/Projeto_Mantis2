@@ -78,7 +78,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test, TestCaseSource("CriarTarefaComCamposObrigatorio")]
-        public void CriarTarefasComDataDrive(ArrayList testData)
+        public void CriarTarefasComDataDriven(ArrayList testData)
         {
             #region Parameters
             string resumo = testData[0].ToString();

@@ -113,6 +113,7 @@
     <Compile Include="Bases\PageBase.cs" />
     <Compile Include="Bases\TestBase.cs" />
     <Compile Include="DataBaseSteps\CreateProjectDBSteps.cs" />
+    <Compile Include="DataBaseSteps\CreateTaskDBSteps.cs" />
     <Compile Include="DataBaseSteps\UsuariosDBSteps.cs" />
     <Compile Include="Flows\AccountPageFlows.cs" />
     <Compile Include="Flows\CreateTaskFlows.cs" />
@@ -144,6 +145,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CriarProjeto.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Queries\CriarTaredasComMarcadoresQueries.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CriarTaredasComMarcadoresQueries.resx</DependentUpon>
     </Compile>
     <Compile Include="Queries\UsuariosQueries.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -183,6 +189,10 @@
     <EmbeddedResource Include="Queries\CriarProjeto.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CriarProjeto.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries\CriarTaredasComMarcadoresQueries.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CriarTaredasComMarcadoresQueries.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Queries\UsuariosQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>

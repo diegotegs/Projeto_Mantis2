@@ -22,21 +22,21 @@ namespace CSharpSeleniumTemplate.Pages
         #region Actions
         public void PreenhcerUsuario(string usuario)
         {
-            SendKeys(usernameField, usuario);
+            SendKeysJavaScript(usernameField, usuario);
         }
 
         public void PreencherSenha(string senha)
         {
-            SendKeys(passwordField, senha);
+            SendKeysJavaScript(passwordField, senha);
         }
 
         public void ClicarEmProcessir()
         {
-            Click(loginNext);
+            ClickJavaScript(loginNext);
         }
         public void ClicarEmLogar()
         {
-            Click(loginButton);
+            ClickJavaScript(loginButton);
         }
 
         public bool RetornaElementoProximaPagina()

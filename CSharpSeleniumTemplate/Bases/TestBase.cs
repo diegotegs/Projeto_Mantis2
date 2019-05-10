@@ -17,15 +17,25 @@ namespace CSharpSeleniumTemplate.Bases
         public void OneTimeSetUp()
         {
             ExtentReportHelpers.CreateReport();
+            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_bug_text_table;");
+            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_bug_table;");
+            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_tag_table;");
+            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_bug_tag_table;");
 
-               CreateProjectDBSteps.CriarProjetoBD("Test "+GeneralHelpers.ReturnStringWithRandomCharacters(3),
-               "Descricao "+ GeneralHelpers.ReturnStringWithRandomCharacters(3));
-            
+
+
         }
 
         [SetUp]
         public void SetUp()
         {
+           
+            CreateProjectDBSteps.CriarProjetoBD("Test " + GeneralHelpers.ReturnStringWithRandomCharacters(3),
+               "Descricao " + GeneralHelpers.ReturnStringWithRandomCharacters(3));
+
+            CreateTaskDBSteps.CriarTarefa();
+
+
             ExtentReportHelpers.AddTest();
             DriverFactory.CreateInstance();
             DriverFactory.INSTANCE.Manage().Window.Maximize();
@@ -54,6 +64,13 @@ namespace CSharpSeleniumTemplate.Bases
         {
             ExtentReportHelpers.GenerateReport();
             DataBaseHelpers.ExecuteQuery("TRUNCATE TABLE  mantis_project_table ;");
+
+            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_bug_text_table;");
+            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_bug_history_table;");
+            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_bug_table;");
+            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_bug_tag_table;");
+
+
 
         }
 

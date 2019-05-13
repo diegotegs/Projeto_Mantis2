@@ -117,10 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CriarTarefas" xml:space="preserve">
-    <value>INSERT INTO mantis_bug_table (project_id,reporter_id,handler_id,duplicate_id,priority,severity,reproducibility,STATUS,resolution,projection,
-eta,bug_text_id,os,os_build,platform,VERSION,fixed_in_version,build,profile_id,view_state,summary,sponsorship_total,sticky,target_version,
-category_id,date_submitted,due_date,last_updated)VALUES(1,1,0,0,30,50,70,10,10,10,10,1,"","","","","","",0,10,"Resumo Teste",0,0,
-"",1,1557487485,1,1557487504);  INSERT INTO mantis_bug_tag_table(tag_id,user_id,date_attached) VALUES (4,1,1557487504);  INSERT INTO mantis_bug_text_table (id,description,steps_to_reproduce,additional_information) VALUES(1,"Teste Descricao","","");  INSERT INTO mantis_bug_history_table (user_id,bug_id,field_name,old_value,new_value) VALUES (1,1,'','Marcador','');</value>
+  <data name="RetornaTarefaPorResumo" xml:space="preserve">
+    <value>SELECT summary FROM  mantis_bug_table
+WHERE summary = '$resumo';</value>
+  </data>
+  <data name="VerificarSeExisteTarefera" xml:space="preserve">
+    <value>SELECT id FROM mantis_bug_table ORDER BY id DESC LIMIT 1 ;</value>
   </data>
 </root>

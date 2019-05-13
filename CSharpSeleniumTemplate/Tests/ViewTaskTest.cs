@@ -1,4 +1,5 @@
 ﻿using CSharpSeleniumTemplate.Bases;
+using CSharpSeleniumTemplate.DataBaseSteps;
 using CSharpSeleniumTemplate.Flows;
 using CSharpSeleniumTemplate.Helpers;
 using CSharpSeleniumTemplate.Pages;
@@ -26,6 +27,8 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string opcao = "Apagar";
+            CreateTaskDBSteps.MassaCriarTarefa();
+            
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -45,6 +48,7 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            CreateTaskDBSteps.MassaCriarTarefa();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -68,6 +72,7 @@ namespace CSharpSeleniumTemplate.Tests
             string [] gravidade = new string []{ "trivial", "recurso", "texto", "mínimo", "pequeno", "grande", "travamento", "obstáculo" };
             Random n = new Random();
             string opcao = "Atualizar Gravidade";
+            CreateTaskDBSteps.MassaCriarTarefa();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -94,6 +99,7 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string opcao = "Resolver";
+            CreateTaskDBSteps.MassaCriarTarefa();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -122,6 +128,7 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string opcao = "Fechar";
+            CreateTaskDBSteps.MassaCriarTarefa();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -141,6 +148,7 @@ namespace CSharpSeleniumTemplate.Tests
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string opcao = "Aplicar marcadores";
             string marcadores = GeneralHelpers.ReturnStringWithRandomCharacters(3);
+            CreateTaskDBSteps.MassaCriarTarefa();
 
             #endregion
 
@@ -160,7 +168,8 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
-            string marcadorDeletado; 
+            string marcadorDeletado;
+            CreateTaskDBSteps.MassaCriarTarefa();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);

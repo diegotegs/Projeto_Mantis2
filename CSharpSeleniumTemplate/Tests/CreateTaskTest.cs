@@ -1,4 +1,5 @@
 ﻿using CSharpSeleniumTemplate.Bases;
+using CSharpSeleniumTemplate.DataBaseSteps;
 using CSharpSeleniumTemplate.Flows;
 using CSharpSeleniumTemplate.Helpers;
 using CSharpSeleniumTemplate.Pages;
@@ -20,6 +21,8 @@ namespace CSharpSeleniumTemplate.Tests
         [AutoInstance] CreateTaskPage createTaskPage;
         [AutoInstance] LoginFlows loginFlows;
         [AutoInstance] CreateTaskFlows createTaskFlows;
+
+        public double SelectDBSteps { get; private set; }
         #endregion
 
         #region Data Driven Providers
@@ -64,7 +67,7 @@ namespace CSharpSeleniumTemplate.Tests
         public void CriarNovaTarefa()
         {
             #region Parameters
-            string resumo = "Teste Resumo";
+            string resumo = "Teste Resumo " + GeneralHelpers.ReturnStringWithRandomNumbers(6);
             string descricao = "Teste descrição";
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
@@ -74,6 +77,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             createTaskFlows.CriarTarefa(resumo, descricao);
             Assert.That(createTaskPage.ValidarCriarTarefa().Contains("sucesso"));
+            Assert.True(SelectsDBSteps.RetornaResumoCriado(resumo).Contains("Teste Resumo"));
 
         }
 

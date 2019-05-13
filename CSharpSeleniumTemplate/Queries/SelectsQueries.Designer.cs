@@ -22,14 +22,14 @@ namespace CSharpSeleniumTemplate.Queries {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class CriarTaredasComMarcadoresQueries {
+    internal class SelectsQueries {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CriarTaredasComMarcadoresQueries() {
+        internal SelectsQueries() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace CSharpSeleniumTemplate.Queries {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSharpSeleniumTemplate.Queries.CriarTaredasComMarcadoresQueries", typeof(CriarTaredasComMarcadoresQueries).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSharpSeleniumTemplate.Queries.SelectsQueries", typeof(SelectsQueries).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,14 +61,21 @@ namespace CSharpSeleniumTemplate.Queries {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a INSERT INTO mantis_bug_table (project_id,reporter_id,handler_id,duplicate_id,priority,severity,reproducibility,STATUS,resolution,projection,
-        ///eta,bug_text_id,os,os_build,platform,VERSION,fixed_in_version,build,profile_id,view_state,summary,sponsorship_total,sticky,target_version,
-        ///category_id,date_submitted,due_date,last_updated)VALUES(1,1,0,0,30,50,70,10,10,10,10,1,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,0,10,&quot;Resumo Teste&quot;,0,0,
-        ///&quot;&quot;,1,1557487485,1,1557487504);  INSERT INTO mantis_bug_tag_table(tag_id,user_id,date_attached) VALU [o restante da cadeia de caracteres foi truncado]&quot;;.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT summary FROM  mantis_bug_table
+        ///WHERE summary = &apos;$resumo&apos;;.
         /// </summary>
-        internal static string CriarTarefas {
+        internal static string RetornaTarefaPorResumo {
             get {
-                return ResourceManager.GetString("CriarTarefas", resourceCulture);
+                return ResourceManager.GetString("RetornaTarefaPorResumo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT id FROM mantis_bug_table ORDER BY id DESC LIMIT 1 ;.
+        /// </summary>
+        internal static string VerificarSeExisteTarefera {
+            get {
+                return ResourceManager.GetString("VerificarSeExisteTarefera", resourceCulture);
             }
         }
     }

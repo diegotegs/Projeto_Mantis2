@@ -114,6 +114,7 @@
     <Compile Include="Bases\TestBase.cs" />
     <Compile Include="DataBaseSteps\CreateProjectDBSteps.cs" />
     <Compile Include="DataBaseSteps\CreateTaskDBSteps.cs" />
+    <Compile Include="DataBaseSteps\SelectsDBSteps.cs" />
     <Compile Include="DataBaseSteps\UsuariosDBSteps.cs" />
     <Compile Include="Flows\AccountPageFlows.cs" />
     <Compile Include="Flows\CreateTaskFlows.cs" />
@@ -146,10 +147,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CriarProjeto.resx</DependentUpon>
     </Compile>
-    <Compile Include="Queries\CriarTaredasComMarcadoresQueries.Designer.cs">
+    <Compile Include="Queries\CriarTarefasQueries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CriarTaredasComMarcadoresQueries.resx</DependentUpon>
+      <DependentUpon>CriarTarefasQueries.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Queries\SelectsQueries.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SelectsQueries.resx</DependentUpon>
     </Compile>
     <Compile Include="Queries\UsuariosQueries.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -190,9 +196,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CriarProjeto.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Queries\CriarTaredasComMarcadoresQueries.resx">
+    <EmbeddedResource Include="Queries\CriarTarefasQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CriarTaredasComMarcadoresQueries.Designer.cs</LastGenOutput>
+      <LastGenOutput>CriarTarefasQueries.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries\SelectsQueries.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SelectsQueries.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Queries\UsuariosQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -61,6 +61,16 @@ namespace CSharpSeleniumTemplate.Queries {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT platform  FROM mantis_user_profile_table 
+        ///WHERE os = &apos;$os&apos;;.
+        /// </summary>
+        internal static string RetornaPerfilAdicionado {
+            get {
+                return ResourceManager.GetString("RetornaPerfilAdicionado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT summary FROM  mantis_bug_table
         ///WHERE summary = &apos;$resumo&apos;;.
         /// </summary>

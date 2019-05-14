@@ -1,8 +1,11 @@
 ﻿using CSharpSeleniumTemplate.Bases;
+using CSharpSeleniumTemplate.DataBaseSteps;
 using CSharpSeleniumTemplate.Flows;
 using CSharpSeleniumTemplate.Helpers;
 using CSharpSeleniumTemplate.Pages;
 using NUnit.Framework;
+
+using System.Collections.Generic;
 
 namespace CSharpSeleniumTemplate.Tests
 {
@@ -16,6 +19,7 @@ namespace CSharpSeleniumTemplate.Tests
         #endregion
 
         [Test]
+        [Category("VerificarAcessos")]
         public void VerificarAbaMinhaConta()
         {
             #region Parameters
@@ -30,6 +34,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("VerificarAcessos")]
         public void VerificarAbaPreferencias()
         {
             #region Parameters
@@ -44,6 +49,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("VerificarAcessos")]
         public void VerificarAbaGerenciarColunas()
         {
             #region Parameters
@@ -58,6 +64,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("VerificarAcessos")]
         public void VerificarAbaPerfil()
         {
             #region Parameters
@@ -73,6 +80,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("VerificarAcessos")]
         public void VerificarAbaTokenApi()
         {
             #region Parameters
@@ -87,6 +95,7 @@ namespace CSharpSeleniumTemplate.Tests
             Assert.True(accountPage.ValidarAbaTokenApi());
         }
         [Test]
+        [Category("TokenDeApi")]
         public void CriarTokenApi()
         {
             #region Parameters
@@ -104,6 +113,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("TokenDeApi")]
         public void RevogarToken()
         {
             #region Parameters
@@ -122,6 +132,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("ValidarCampoAdicionarPerfil")]
         public void VerificarCampoObrigatorioPlataformaAdicionarPerfil()
         {
             #region Parameters
@@ -137,6 +148,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("ValidarCampoAdicionarPerfil")]
         public void VerificarCampoObrigatorioOSAdicionarPerfil()
         {
             #region Parameters
@@ -152,6 +164,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("ValidarCampoAdicionarPerfil")]
         public void VerificarCampoObrigatorioVersaoOsAdicionarPerfil()
         {
             #region Parameters
@@ -167,22 +180,27 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("CRUDPerfil")]
         public void AdicionarPerfil()
         {
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
-            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string senha = Properties.Settings.Default.DEFAULT_PASSWORD;           
             
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
 
-            accountPageFlows.ClicarPerfil(accountPage.plataforma, accountPage.so, accountPage.versao);
+            accountPageFlows.ClicarPerfil(accountPage.plataforma, accountPage.so , accountPage.versao);
+
+            Assert.AreEqual(accountPage.plataforma, accountPage.retornaValor());
             
             Assert.True(accountPage.RetornaPerfisAdicionado().Contains(accountPage.GetValorPerfilAdicionado()));
+
         }
 
         [Test]
+        [Category("CRUDPerfil")]
         public void ApagarPerfil()
         {
             #region Parameters

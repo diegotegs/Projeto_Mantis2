@@ -18,6 +18,7 @@ namespace CSharpSeleniumTemplate.Tests
 
 
         [Test]
+        [Category("AdicionarCamposPersonalizado")]
         public void CriarCampoPersonalizado()
         {
             #region Parameters
@@ -36,6 +37,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AdicionarCamposPersonalizado")]
         public void AdicionarCampoPersonalizadoSemNome()
         {
             #region Parameters
@@ -54,6 +56,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AdicionarCamposPersonalizado")]
         public void AdicionarCampoComOMesmoNomeDoExistente()
         {
             #region Parameters
@@ -75,6 +78,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AdicionarCamposPersonalizado")]
         public void ExcluirCampoPersonalizado()
         {
             #region Parameters

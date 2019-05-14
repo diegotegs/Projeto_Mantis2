@@ -21,6 +21,7 @@ namespace CSharpSeleniumTemplate.Tests
         #endregion
 
         [Test]
+        [Category("AcessarAbas")]
         public void AcessarAbaGerenciarUsuario()
         {
             #region Parameters
@@ -36,6 +37,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AcessarAbas")]
         public void AcessarAbaGerenciarProjetos()
         {
             #region Parameters
@@ -51,6 +53,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AcessarAbas")]
         public void AcessarAbaGerenciarMarcadores()
         {
             #region Parameters
@@ -66,6 +69,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AcessarAbas")]
         public void AcessarAbaGerenciarCamposPersonalizados()
         {
             #region Parameters
@@ -81,6 +85,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AcessarAbas")]
         public void AcessarAbaGerenciarPerfisGlobal()
         {
             #region Parameters
@@ -96,6 +101,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AcessarAbas")]
         public void AcessarAbaGerenciarPlugins()
         {
             #region Parameters
@@ -111,6 +117,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AcessarAbas")]
         public void AcessarAbaGerenciarConfiguracoes()
         {
             #region Parameters
@@ -125,6 +132,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("CRUDProjeto")]
         public void CriarNovoProjeto()
         {
             #region Parameters
@@ -146,6 +154,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("CRUDProjeto")]
         public void ApagarProjeto()
         {
 
@@ -168,6 +177,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("CRUDProjeto")]
         public void CriarCategoriaSemNome()
         {
             #region Parameters
@@ -184,6 +194,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("CRUDProjeto")]
         public void CriarCategoriaRepetida()
         {
             #region Parameters
@@ -204,6 +215,7 @@ namespace CSharpSeleniumTemplate.Tests
   
 
         [Test]
+        [Category("CRUDMarcadores")]
         public void CriarMarcadores()
         {
             #region Parameters
@@ -222,6 +234,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("CRUDMarcadores")]
         public void ApagarMarcador()
         {
             #region Parameters
@@ -246,6 +259,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AcessarAbas")]
         public void VerificarAbaRelatorioDeConfiguracao()
         {
             #region Parameters
@@ -261,6 +275,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AcessarAbas")]
         public void VerificarAbaLiminaresDeFluxoDeTrabalho()
         {
             #region Parameters
@@ -276,6 +291,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AcessarAbas")]
         public void VerificarAbaTransicoesDeFluxoDeTrabalho()
         {
             #region Parameters
@@ -291,6 +307,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AcessarAbas")]
         public void VerificarAbaNotificacaoPorEmail()
         {
             #region Parameters
@@ -306,6 +323,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("AcessarAbas")]
         public void VerificarAbaGerenciarColunas()
         {
             #region Parameters

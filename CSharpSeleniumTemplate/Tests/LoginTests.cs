@@ -24,6 +24,7 @@ namespace CSharpSeleniumTemplate.Tests
         #endregion
 
         [Test]
+        [Category("Logar")]
         public void EfetuarLoginComSucesso()
         {
             #region Parameters
@@ -41,6 +42,7 @@ namespace CSharpSeleniumTemplate.Tests
 
         
         [Test]
+        [Category("Logar")]
         public void EfetuarLoginComSenhaInvalida()
         {
             #region Parameters

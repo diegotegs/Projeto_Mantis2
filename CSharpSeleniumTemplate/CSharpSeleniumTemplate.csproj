@@ -114,6 +114,7 @@
     <Compile Include="Bases\TestBase.cs" />
     <Compile Include="DataBaseSteps\CreateProjectDBSteps.cs" />
     <Compile Include="DataBaseSteps\CreateTaskDBSteps.cs" />
+    <Compile Include="DataBaseSteps\ReturnProfileDBSteps.cs" />
     <Compile Include="DataBaseSteps\SelectsDBSteps.cs" />
     <Compile Include="DataBaseSteps\UsuariosDBSteps.cs" />
     <Compile Include="Flows\AccountPageFlows.cs" />

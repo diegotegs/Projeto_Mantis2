@@ -34,6 +34,7 @@ namespace CSharpSeleniumTemplate.Tests
 
 
         [Test]
+        [Category("ValidarCamposObrigatorio")]
         public void ValidarCampoObrigatorioDescricao()
         {
             #region Parameters
@@ -49,6 +50,7 @@ namespace CSharpSeleniumTemplate.Tests
 
         }
         [Test]
+        [Category("ValidarCamposObrigatorio")]
         public void ValidarCampoObrigatorioResumo()
         {
             #region Parameters
@@ -64,6 +66,7 @@ namespace CSharpSeleniumTemplate.Tests
 
         }
         [Test]
+        [Category("CriarTarefa")]
         public void CriarNovaTarefa()
         {
             #region Parameters
@@ -82,6 +85,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test, TestCaseSource("CriarTarefaComCamposObrigatorio")]
+        [Category("CriarTarefaDataDriven")]
         public void CriarTarefasComDataDriven(ArrayList testData)
         {
             #region Parameters

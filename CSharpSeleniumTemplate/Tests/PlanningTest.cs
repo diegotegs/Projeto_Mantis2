@@ -20,6 +20,7 @@ namespace CSharpSeleniumTemplate.Tests
         #endregion
 
         [Test]
+        [Category("AcessarAbas")]
         public void VerificarPlanejamentoIndisponivel()
         {
             #region Parameters

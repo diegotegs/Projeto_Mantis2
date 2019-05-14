@@ -21,6 +21,7 @@ namespace CSharpSeleniumTemplate.Tests
         #endregion
 
         [Test]
+        [Category("CRUDTarefa")]
         public void ApagarTarefa()
         {
             #region Parameters
@@ -43,6 +44,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("CRUDTarefa")]
         public void PesquisarTarefaUsandoNumIdentificador()
         {
             #region Parameters
@@ -64,6 +66,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("CRUDTarefa")]
         public void AlterarGravidade()
         {
             #region Parameters
@@ -93,6 +96,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("CRUDTarefa")]
         public void ResolverTarefa()
         {
             #region Parameters
@@ -122,6 +126,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("CRUDTarefa")]
         public void FecharTarefa()
         {
             #region Parameters
@@ -141,6 +146,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("CRUDTarefa")]
         public void AplicarMarcadores()
         {
             #region Parameters
@@ -163,6 +169,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
+        [Category("CRUDTarefa")]
         public void ApagarMarcadores()
         {
             #region Parameters

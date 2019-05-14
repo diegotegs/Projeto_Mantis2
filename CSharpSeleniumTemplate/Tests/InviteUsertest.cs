@@ -17,6 +17,7 @@ namespace CSharpSeleniumTemplate.Tests
         #endregion
 
         [Test]
+        [Category("AdicionarUsuarioAoProjeto")]
         public void ConvitarUsuario()
         {
             #region Parameters

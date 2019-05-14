@@ -16,6 +16,7 @@ namespace CSharpSeleniumTemplate.Tests
         #endregion
 
         [Test]
+        [Category("VerificarMenuRegistroAusente")]
         public void VerificarAusenciaDeRegistroDeMudanca()
         {
             #region Parameters

@@ -1,6 +1,8 @@
 ﻿using CSharpSeleniumTemplate.Bases;
+using CSharpSeleniumTemplate.DataBaseSteps;
 using CSharpSeleniumTemplate.Helpers;
 using OpenQA.Selenium;
+using System.Collections.Generic;
 
 namespace CSharpSeleniumTemplate.Pages
 {
@@ -199,7 +201,23 @@ namespace CSharpSeleniumTemplate.Pages
 
         public string GetValorPerfilAdicionado()
         {
-            return plataforma+" " + so+ " " + versao;
+            return plataforma+" " + so + " " + versao;
+        }        
+
+        public string retornaValor()
+        {
+            List<string> controle = SelectsDBSteps.RetornaPerfil(so);
+            string plataformas;
+            for (int i = 0; i < controle.Count ; i++)
+            {
+                
+                if (controle[i] == plataforma)
+                {
+                   
+                   plataformas = controle[i];
+                }
+            }
+            return plataforma;
         }
 
         public string RetornaPerfisAdicionado()

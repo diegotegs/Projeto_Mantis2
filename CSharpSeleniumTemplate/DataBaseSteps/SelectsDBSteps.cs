@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CSharpSeleniumTemplate.DataBaseSteps
 {
-    class SelectsDBSteps
+    public class SelectsDBSteps
     {
         public static List<string> VerificarSeExisteTarefaCriada()
         {
@@ -22,5 +22,12 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
             string queryId = SelectsQueries.RetornaTarefaPorResumo.Replace("$resumo",resumo);
             return DataBaseHelpers.RetornaDadosQuery(queryId)[0];
         }
+
+        public static List<string> RetornaPerfil(string osGerado)
+        {
+            string queryPerfil = SelectsQueries.RetornaPerfilAdicionado.Replace("$os", osGerado);
+            return DataBaseHelpers.RetornaDadosQuery(queryPerfil);
+        }
+
     }
 }

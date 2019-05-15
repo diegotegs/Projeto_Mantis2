@@ -114,9 +114,10 @@
     <Compile Include="Bases\TestBase.cs" />
     <Compile Include="DataBaseSteps\CreateProjectDBSteps.cs" />
     <Compile Include="DataBaseSteps\CreateTaskDBSteps.cs" />
+    <Compile Include="DataBaseSteps\DeleteChargesDBSteps.cs" />
+    <Compile Include="DataBaseSteps\InsertsDBSteps.cs" />
     <Compile Include="DataBaseSteps\ReturnProfileDBSteps.cs" />
     <Compile Include="DataBaseSteps\SelectsDBSteps.cs" />
-    <Compile Include="DataBaseSteps\UsuariosDBSteps.cs" />
     <Compile Include="Flows\AccountPageFlows.cs" />
     <Compile Include="Flows\CreateTaskFlows.cs" />
     <Compile Include="Flows\LoginFlows.cs" />
@@ -153,15 +154,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CriarTarefasQueries.resx</DependentUpon>
     </Compile>
+    <Compile Include="Queries\InsertsQueries.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InsertsQueries.resx</DependentUpon>
+    </Compile>
     <Compile Include="Queries\SelectsQueries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SelectsQueries.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Queries\UsuariosQueries.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UsuariosQueries.resx</DependentUpon>
     </Compile>
     <Compile Include="Tests\AccountTest.cs" />
     <Compile Include="Tests\ChangeLogTest.cs" />
@@ -201,13 +202,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CriarTarefasQueries.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Queries\InsertsQueries.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>InsertsQueries.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Queries\SelectsQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>SelectsQueries.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Queries\UsuariosQueries.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>UsuariosQueries.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

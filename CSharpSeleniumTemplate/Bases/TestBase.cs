@@ -22,16 +22,12 @@ namespace CSharpSeleniumTemplate.Bases
         [SetUp]
         public void SetUp()
         {
-
-            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_bug_text_table;");
-            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_bug_table;");
-            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_tag_table;");
-            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_bug_tag_table;");
-
+            //Zera algumas tabelas do banco ao iniciar um teste 
+            DeleteChargesDBSteps.SetUpDB();
+           //cria um projeto ao iniciar um teste
             CreateProjectDBSteps.CriarProjetoBD("Test " + GeneralHelpers.ReturnStringWithRandomCharacters(3),
-               "Descricao " + GeneralHelpers.ReturnStringWithRandomCharacters(3));            
-           
-
+               "Descricao " + GeneralHelpers.ReturnStringWithRandomCharacters(3));                
+            
             ExtentReportHelpers.AddTest();
             DriverFactory.CreateInstance();
             DriverFactory.INSTANCE.Manage().Window.Maximize();
@@ -59,7 +55,8 @@ namespace CSharpSeleniumTemplate.Bases
         {
             ExtentReportHelpers.GenerateReport();
 
-            DataBaseHelpers.ExecuteQuery("TRUNCATE TABLE  mantis_project_table ;");        
+            //deleta cargas no final da execução de teste
+            DeleteChargesDBSteps.OneTimeTearDB();
 
 
         }

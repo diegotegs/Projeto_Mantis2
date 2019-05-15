@@ -125,6 +125,10 @@ WHERE os = '$os';</value>
     <value>SELECT summary FROM  mantis_bug_table
 WHERE summary = '$resumo';</value>
   </data>
+  <data name="RetornoCampoPersonalizadoDB" xml:space="preserve">
+    <value>SELECT name FROM mantis_custom_field_table
+WHERE NAME = '$namePersonalizado';</value>
+  </data>
   <data name="VerificarSeExisteTarefera" xml:space="preserve">
     <value>SELECT id FROM mantis_bug_table ORDER BY id DESC LIMIT 1 ;</value>
   </data>

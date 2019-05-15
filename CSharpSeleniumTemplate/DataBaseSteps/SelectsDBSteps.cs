@@ -29,5 +29,13 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
             return DataBaseHelpers.RetornaDadosQuery(queryPerfil);
         }
 
+        public static string RetornaCampoPersonalizadoCadastrado(string nome)
+        {
+            string queryCampoPersonaalizado = SelectsQueries.RetornoCampoPersonalizadoDB.Replace("$namePersonalizado", nome);
+            return DataBaseHelpers.RetornaDadosQuery(queryCampoPersonaalizado)[0];
+        }       
+            
+        }
+
     }
-}
+

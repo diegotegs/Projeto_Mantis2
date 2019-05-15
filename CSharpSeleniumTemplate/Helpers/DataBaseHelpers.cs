@@ -84,6 +84,6 @@ namespace CSharpSeleniumTemplate.Helpers
             }
 
             return lista;
-        }
+        }   
     }
 }

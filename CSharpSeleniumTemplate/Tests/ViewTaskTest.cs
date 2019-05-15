@@ -147,7 +147,7 @@ namespace CSharpSeleniumTemplate.Tests
 
         [Test]
         [Category("CRUDTarefa")]
-        public void AplicarMarcadores()
+        public void AplicarMarcadoresRelacionadoAUmaTarefa()
         {
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;

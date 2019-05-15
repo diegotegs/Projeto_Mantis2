@@ -117,9 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="RetornaSenhaUsuario" xml:space="preserve">
-    <value>select user.senha 
-from usuarios user 
-where user.username = '$username';</value>
+  <data name="MassaCampoPersonalizado" xml:space="preserve">
+    <value>INSERT INTO mantis_custom_field_table (name)VALUES('$campoPersonalizado');</value>
+  </data>
+  <data name="MassaDeDadosCriarMarcador" xml:space="preserve">
+    <value>INSERT INTO mantis_tag_table (user_id ,NAME , description) VALUES (1,'$marcadorDB','$descriçãoDB');</value>
   </data>
 </root>

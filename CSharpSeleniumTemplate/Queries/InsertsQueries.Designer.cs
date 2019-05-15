@@ -22,14 +22,14 @@ namespace CSharpSeleniumTemplate.Queries {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class SelectsQueries {
+    internal class InsertsQueries {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal SelectsQueries() {
+        internal InsertsQueries() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace CSharpSeleniumTemplate.Queries {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSharpSeleniumTemplate.Queries.SelectsQueries", typeof(SelectsQueries).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSharpSeleniumTemplate.Queries.InsertsQueries", typeof(InsertsQueries).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,41 +61,20 @@ namespace CSharpSeleniumTemplate.Queries {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT platform  FROM mantis_user_profile_table 
-        ///WHERE os = &apos;$os&apos;;.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a INSERT INTO mantis_custom_field_table (name)VALUES(&apos;$campoPersonalizado&apos;);.
         /// </summary>
-        internal static string RetornaPerfilAdicionado {
+        internal static string MassaCampoPersonalizado {
             get {
-                return ResourceManager.GetString("RetornaPerfilAdicionado", resourceCulture);
+                return ResourceManager.GetString("MassaCampoPersonalizado", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT summary FROM  mantis_bug_table
-        ///WHERE summary = &apos;$resumo&apos;;.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a INSERT INTO mantis_tag_table (user_id ,NAME , description) VALUES (1,&apos;$marcadorDB&apos;,&apos;$descriçãoDB&apos;);.
         /// </summary>
-        internal static string RetornaTarefaPorResumo {
+        internal static string MassaDeDadosCriarMarcador {
             get {
-                return ResourceManager.GetString("RetornaTarefaPorResumo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT name FROM mantis_custom_field_table
-        ///WHERE NAME = &apos;$namePersonalizado&apos;;.
-        /// </summary>
-        internal static string RetornoCampoPersonalizadoDB {
-            get {
-                return ResourceManager.GetString("RetornoCampoPersonalizadoDB", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT id FROM mantis_bug_table ORDER BY id DESC LIMIT 1 ;.
-        /// </summary>
-        internal static string VerificarSeExisteTarefera {
-            get {
-                return ResourceManager.GetString("VerificarSeExisteTarefera", resourceCulture);
+                return ResourceManager.GetString("MassaDeDadosCriarMarcador", resourceCulture);
             }
         }
     }

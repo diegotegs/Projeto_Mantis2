@@ -41,12 +41,15 @@ namespace CSharpSeleniumTemplate.Tests
             string resumo = "Teste Resumo";            
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string msgPortugues ="Preencha este campo.";
+            string msgIngles = "Please fill out this field.";
+            string msgJavaScripit = "validationMessage";
             #endregion
             loginFlows.EfetuarLogin(usuario,senha);
 
-            createTaskFlows.CriarTarefa(resumo,"");            
-            Assert.AreEqual("Please fill out this field.", createTaskPage.RetornarMsgDescricao("validationMessage"));
-
+            createTaskFlows.CriarTarefa(resumo,"");
+            CollectionAssert.Contains(new[] { msgIngles, msgPortugues}, createTaskPage.RetornarMsgDescricao(msgJavaScripit));
+            
 
         }
         [Test]
@@ -57,11 +60,14 @@ namespace CSharpSeleniumTemplate.Tests
             string descricao = "Teste descrição";
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string msgPortugues = "Preencha este campo.";
+            string msgIngles = "Please fill out this field.";
+            string msgJavaScripit = "validationMessage";
             #endregion
             loginFlows.EfetuarLogin(usuario, senha);
 
-            createTaskFlows.CriarTarefa("", descricao);            
-            Assert.AreEqual("Please fill out this field.", createTaskPage.RetornarMsgResumo("validationMessage"));
+            createTaskFlows.CriarTarefa("", descricao);
+            CollectionAssert.Contains(new[] { msgIngles, msgPortugues }, createTaskPage.RetornarMsgResumo(msgJavaScripit));
             
 
         }

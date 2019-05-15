@@ -236,7 +236,7 @@ namespace CSharpSeleniumTemplate.Pages
           
         }
 
-        public bool VErificarSeExisteMarcadores()
+        public bool VerificarSeExisteMarcadores()
         {
             return ReturnIfElementExists(firstFieldTable);
         }

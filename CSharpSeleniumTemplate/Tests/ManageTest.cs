@@ -1,4 +1,5 @@
 ﻿using CSharpSeleniumTemplate.Bases;
+using CSharpSeleniumTemplate.DataBaseSteps;
 using CSharpSeleniumTemplate.Flows;
 using CSharpSeleniumTemplate.Helpers;
 using CSharpSeleniumTemplate.Pages;
@@ -240,14 +241,17 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string marcador = "Marcador "+ GeneralHelpers.ReturnStringWithRandomNumbers(3);
+            string descricao = "Descrição "+ GeneralHelpers.ReturnStringWithRandomNumbers(3);
             #endregion
+            InsertsDBSteps.CriarMarcadorDB(marcador,descricao);
 
             loginFlows.EfetuarLogin(usuario, senha);
 
             managePage.ClicarMenuGerenciar();
             managePage.ClicarGerenciarMarcadores();
 
-            Assume.That(managePage.VErificarSeExisteMarcadores());
+            Assume.That(managePage.VerificarSeExisteMarcadores());
 
             managePage.GetQuantidadeDeRegistro();
             managePage.ClicarMarcadorParaApagar();

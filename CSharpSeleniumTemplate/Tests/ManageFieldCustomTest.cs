@@ -1,4 +1,5 @@
 ﻿using CSharpSeleniumTemplate.Bases;
+using CSharpSeleniumTemplate.DataBaseSteps;
 using CSharpSeleniumTemplate.Flows;
 using CSharpSeleniumTemplate.Helpers;
 using CSharpSeleniumTemplate.Pages;
@@ -33,6 +34,9 @@ namespace CSharpSeleniumTemplate.Tests
 
             manageFieldCustomPage.PreencherCampoNome(nome);
             manageFieldCustomPage.ClicarNovoCampoPersonalizado();
+
+            Assert.AreEqual(nome, SelectsDBSteps.RetornaCampoPersonalizadoCadastrado(nome));
+
             Assert.AreEqual("Operação realizada com sucesso.", manageFieldCustomPage.RetornoMSgSucesso());
         }
 
@@ -74,6 +78,8 @@ namespace CSharpSeleniumTemplate.Tests
             manageFieldCustomPage.AdicionarElementoRepetidoNaTabela();
             manageFieldCustomPage.ClicarNovoCampoPersonalizado();
 
+
+
             Assert.True(manageFieldCustomPage.RetornaMsgDeErro().Contains("Este é um nome duplicado."));
         }
 
@@ -84,9 +90,11 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
-
+            string nome = "CampoPersonalizado "+GeneralHelpers.ReturnStringWithRandomNumbers(3);
+            
             #endregion
 
+            InsertsDBSteps.CriarCampoPersonalizadoDB(nome);
             loginFlows.EfetuarLogin(usuario, senha);
 
             manageFieldCustomFlows.GerarCamposPersonalizados();
@@ -95,7 +103,10 @@ namespace CSharpSeleniumTemplate.Tests
 
             manageFieldCustomPage.ClicarPrimeiroCampoPersonalizado();
             manageFieldCustomPage.ClicarApagarCampoPersonalizado();
-            manageFieldCustomPage.ClicarConfirmarDelete();
+            manageFieldCustomPage.ClicarConfirmarDelete();        
+
+
+            
             Assert.AreEqual("Operação realizada com sucesso.",manageFieldCustomPage.RetornoMSgSucesso());
         }
 

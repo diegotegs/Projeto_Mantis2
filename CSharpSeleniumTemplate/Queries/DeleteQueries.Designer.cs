@@ -22,14 +22,14 @@ namespace CSharpSeleniumTemplate.Queries {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class InsertsQueries {
+    internal class DeleteQueries {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal InsertsQueries() {
+        internal DeleteQueries() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace CSharpSeleniumTemplate.Queries {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSharpSeleniumTemplate.Queries.InsertsQueries", typeof(InsertsQueries).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSharpSeleniumTemplate.Queries.DeleteQueries", typeof(DeleteQueries).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,12 @@ namespace CSharpSeleniumTemplate.Queries {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a INSERT INTO mantis_custom_field_table (name)VALUES(&apos;$campoPersonalizado&apos;);.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a DELETE FROM mantis_user_table
+        ///WHERE id !=1;.
         /// </summary>
-        internal static string MassaCampoPersonalizado {
+        internal static string DeletaUsuariosCriado {
             get {
-                return ResourceManager.GetString("MassaCampoPersonalizado", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a INSERT INTO mantis_user_profile_table (user_id,platform,os,os_build, description)VALUES(1,&apos;$plataforma&apos;,&apos;$so&apos;,&apos;$build&apos;,&apos;&apos;);.
-        /// </summary>
-        internal static string MassaDeDadoCriarPerfil {
-            get {
-                return ResourceManager.GetString("MassaDeDadoCriarPerfil", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a INSERT INTO mantis_tag_table (user_id ,NAME , description) VALUES (1,&apos;$marcadorDB&apos;,&apos;$descriçãoDB&apos;);.
-        /// </summary>
-        internal static string MassaDeDadosCriarMarcador {
-            get {
-                return ResourceManager.GetString("MassaDeDadosCriarMarcador", resourceCulture);
+                return ResourceManager.GetString("DeletaUsuariosCriado", resourceCulture);
             }
         }
     }

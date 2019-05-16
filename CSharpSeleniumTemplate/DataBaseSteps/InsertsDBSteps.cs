@@ -10,6 +10,7 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
 {
    public class InsertsDBSteps
     {
+        
         public static void CriarMarcadorDB(string nome, string marcador)
         {
             string queryMarcador = InsertsQueries.MassaDeDadosCriarMarcador.Replace("$marcadorDB", nome).Replace("$descriçãoDB", marcador);
@@ -21,6 +22,13 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
         {
             string queryCampoPersonalizado = InsertsQueries.MassaCampoPersonalizado.Replace("$campoPersonalizado",nome);
             DataBaseHelpers.ExecuteQuery(queryCampoPersonalizado);
+        }
+
+        public static void CriarPerfil(string plat, string osDB, string build)
+        {
+            string query = InsertsQueries.MassaDeDadoCriarPerfil.Replace("$plataforma", plat).
+                Replace("$so", osDB).Replace("$build", build);
+            DataBaseHelpers.ExecuteQuery(query);
         }
     }
 }

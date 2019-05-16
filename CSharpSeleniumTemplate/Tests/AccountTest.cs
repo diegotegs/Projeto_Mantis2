@@ -138,13 +138,16 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string msgPortugues = "Preencha este campo.";
+            string msgIngles = "Please fill out this field.";
+            string msgJavaScripit = "validationMessage";
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
 
             accountPageFlows.ClicarPerfil("","123","7");
-            
-            Assert.AreEqual("Please fill out this field.", accountPage.GetMsgObrigatorioPlataforma("validationMessage"));
+
+            CollectionAssert.Contains(new[] { msgIngles, msgPortugues }, accountPage.GetMsgObrigatorioPlataforma(msgJavaScripit));
         }
 
         [Test]
@@ -154,13 +157,16 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string msgPortugues = "Preencha este campo.";
+            string msgIngles = "Please fill out this field.";
+            string msgJavaScripit = "validationMessage";
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
 
             accountPageFlows.ClicarPerfil("Test", "", "7");
-            
-            Assert.AreEqual("Please fill out this field.", accountPage.GetMsgObrigatorioOS("validationMessage"));
+
+            CollectionAssert.Contains(new[] { msgIngles, msgPortugues }, accountPage.GetMsgObrigatorioOS(msgJavaScripit));
         }
 
         [Test]
@@ -170,13 +176,16 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string msgPortugues = "Preencha este campo.";
+            string msgIngles = "Please fill out this field.";
+            string msgJavaScripit = "validationMessage";
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
 
             accountPageFlows.ClicarPerfil("Test", "Test Os","");
-           
-            Assert.AreEqual("Please fill out this field.", accountPage.GetMsgObrigatorioVersao("validationMessage"));
+
+            CollectionAssert.Contains(new[] { msgIngles, msgPortugues }, accountPage.GetMsgObrigatorioVersao(msgJavaScripit));
         }
 
         [Test]
@@ -193,7 +202,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             accountPageFlows.ClicarPerfil(accountPage.plataforma, accountPage.so , accountPage.versao);
 
-            Assert.AreEqual(accountPage.plataforma, accountPage.retornaValor());
+            Assert.AreEqual(accountPage.plataforma, accountPage.retornaValorDB());
             
             Assert.True(accountPage.RetornaPerfisAdicionado().Contains(accountPage.GetValorPerfilAdicionado()));
 
@@ -206,10 +215,12 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
-            
+            string plataforma = "Plataforma " + GeneralHelpers.ReturnStringWithRandomNumbers(2);
+            string os = GeneralHelpers.ReturnStringWithRandomCharacters(3);
+            string build = GeneralHelpers.ReturnStringWithRandomCharacters(5);
 
             #endregion
-
+            InsertsDBSteps.CriarPerfil(plataforma,os,build);
             loginFlows.EfetuarLogin(usuario, senha);
 
             accountPage.ClicarAlterarConta();
@@ -219,6 +230,8 @@ namespace CSharpSeleniumTemplate.Tests
             accountPage.SelecionarPerfil();            
             accountPage.ClicarEmApagar();
             accountPage.ClicarEnviar();
+
+            Assert.AreEqual(0, SelectsDBSteps.VerificarQuantidadeDePerfilExistente(plataforma));
             Assert.Greater(accountPage.amountOption , accountPage.restOption);
             
         }

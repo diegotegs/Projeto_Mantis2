@@ -10,12 +10,7 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
 {
     public class SelectsDBSteps
     {
-        public static List<string> VerificarSeExisteTarefaCriada()
-        {
-            string queryTarefas = SelectsQueries.VerificarSeExisteTarefera;
-            return DataBaseHelpers.RetornaDadosQuery(queryTarefas);
-
-        }
+    
 
         public static string RetornaResumoCriado(string resumo)
         {
@@ -33,8 +28,52 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
         {
             string queryCampoPersonaalizado = SelectsQueries.RetornoCampoPersonalizadoDB.Replace("$namePersonalizado", nome);
             return DataBaseHelpers.RetornaDadosQuery(queryCampoPersonaalizado)[0];
-        }       
+        }
+        
+        public static int RetornarQtDeCampoExpecifico(string nome)
+        {
+            string queryPersonalizado = SelectsQueries.RetornaQuantidadeDeCampoPersonalizadoExpecifico.Replace("$personalizado", nome);
+            string campo = DataBaseHelpers.RetornaDadosQuery(queryPersonalizado)[0];
+            return Convert.ToInt32(campo);
+        }
             
+        public static string RetornaConvidadoAdicionado(string nome)
+        {
+            string query = SelectsQueries.RetornaUsuarioExpecifico.Replace("$convidado", nome);
+            return DataBaseHelpers.RetornaDadosQuery(query)[0];
+
+        }
+        public static string RetornaMarcadoresCriado(string nome)
+        {
+            string queryMarcador = SelectsQueries.RetoraMarcadorExpecifico.Replace("$tag", nome);
+            return DataBaseHelpers.RetornaDadosQuery(queryMarcador)[0];
+        }
+
+        public static int VerificarMarcadorDeletado(string nome )
+        {
+            string query = SelectsQueries.RetornaQuantidadeDeMarcadoresExistente.Replace("$marcador", nome);
+            return Convert.ToInt32(DataBaseHelpers.RetornaDadosQuery(query)[0]);
+        }
+
+        public static int VerificarQuantidadeDePerfilExistente(string plataforma)
+        {
+            string query = SelectsQueries.RetornaQuantidadePerfilExistente.Replace("$plataforma", plataforma);
+            return Convert.ToInt32(DataBaseHelpers.RetornaDadosQuery(query)[0]);
+        }
+
+        public static int RetornaQuantidadeDeProjetosCriados()
+        {
+            string query = SelectsQueries.RetornaQuantidadeDeProjetoExistente;
+            return Convert.ToInt32(DataBaseHelpers.RetornaDadosQuery(query)[0]);
+            
+        }
+
+        public static int RetornaQuantidadeDeTarefasExistente()
+        {
+            string query = SelectsQueries.VerificaSeApagouTarefa;
+            return Convert.ToInt32(DataBaseHelpers.RetornaDadosQuery(query)[0]);
+        }
+
         }
 
     }

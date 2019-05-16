@@ -39,6 +39,7 @@ namespace CSharpSeleniumTemplate.Tests
             viewTaskPage.ClicarApagarTarefa();
             viewTaskPage.PreencherFiltroComIDItemExcluido();
             viewTaskPage.clicarAplicarFiltro();
+            Assert.AreEqual(0,SelectsDBSteps.RetornaQuantidadeDeTarefasExistente());
             Assert.False(viewTaskPage.VerificarElementoSeExiste());
 
         }
@@ -197,6 +198,9 @@ namespace CSharpSeleniumTemplate.Tests
             viewTaskPage.PreencherFiltroParaPesquisar();
             viewTaskPage.clicarAplicarFiltro();
             viewTaskPage.ClicarNaTarefa();
+            
+
+
             Assert.False(viewTaskPage.GetMarcadores().Contains(marcadorDeletado));
         }
 

@@ -204,7 +204,7 @@ namespace CSharpSeleniumTemplate.Pages
             return plataforma+" " + so + " " + versao;
         }        
 
-        public string retornaValor()
+        public string retornaValorDB()
         {
             List<string> controle = SelectsDBSteps.RetornaPerfil(so);
             string plataformas;

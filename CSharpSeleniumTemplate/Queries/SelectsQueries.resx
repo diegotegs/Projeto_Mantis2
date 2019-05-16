@@ -117,19 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="RetoraMarcadorExpecifico" xml:space="preserve">
+    <value>SELECT name FROM mantis_tag_table
+WHERE NAME = '$tag';</value>
+  </data>
   <data name="RetornaPerfilAdicionado" xml:space="preserve">
     <value>SELECT platform  FROM mantis_user_profile_table 
 WHERE os = '$os';</value>
+  </data>
+  <data name="RetornaQuantidadeDeCampoPersonalizadoExpecifico" xml:space="preserve">
+    <value>SELECT COUNT(*) from mantis_custom_field_table
+WHERE NAME = '$personalizado';</value>
+  </data>
+  <data name="RetornaQuantidadeDeMarcadoresExistente" xml:space="preserve">
+    <value>SELECT COUNT(*) AS Marcadores FROM mantis_tag_table
+WHERE NAME = '$marcador';</value>
+  </data>
+  <data name="RetornaQuantidadeDeProjetoExistente" xml:space="preserve">
+    <value>SELECT COUNT(*) AS projetos FROM mantis_project_table;</value>
+  </data>
+  <data name="RetornaQuantidadePerfilExistente" xml:space="preserve">
+    <value>SELECT COUNT(platform) AS plataforma FROM mantis_user_profile_table 
+WHERE platform = '$plataforma';</value>
   </data>
   <data name="RetornaTarefaPorResumo" xml:space="preserve">
     <value>SELECT summary FROM  mantis_bug_table
 WHERE summary = '$resumo';</value>
   </data>
+  <data name="RetornaUsuarioExpecifico" xml:space="preserve">
+    <value>SELECT username FROM mantis_user_table
+WHERE username ='$convidado';</value>
+  </data>
   <data name="RetornoCampoPersonalizadoDB" xml:space="preserve">
     <value>SELECT name FROM mantis_custom_field_table
 WHERE NAME = '$namePersonalizado';</value>
   </data>
-  <data name="VerificarSeExisteTarefera" xml:space="preserve">
-    <value>SELECT id FROM mantis_bug_table ORDER BY id DESC LIMIT 1 ;</value>
+  <data name="VerificaSeApagouTarefa" xml:space="preserve">
+    <value>SELECT COUNT(*) AS Tarefas FROM mantis_bug_table;</value>
   </data>
 </root>

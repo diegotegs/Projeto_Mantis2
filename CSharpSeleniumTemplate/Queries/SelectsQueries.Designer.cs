@@ -61,12 +61,61 @@ namespace CSharpSeleniumTemplate.Queries {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT name FROM mantis_tag_table
+        ///WHERE NAME = &apos;$tag&apos;;.
+        /// </summary>
+        internal static string RetoraMarcadorExpecifico {
+            get {
+                return ResourceManager.GetString("RetoraMarcadorExpecifico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT platform  FROM mantis_user_profile_table 
         ///WHERE os = &apos;$os&apos;;.
         /// </summary>
         internal static string RetornaPerfilAdicionado {
             get {
                 return ResourceManager.GetString("RetornaPerfilAdicionado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT COUNT(*) from mantis_custom_field_table
+        ///WHERE NAME = &apos;$personalizado&apos;;.
+        /// </summary>
+        internal static string RetornaQuantidadeDeCampoPersonalizadoExpecifico {
+            get {
+                return ResourceManager.GetString("RetornaQuantidadeDeCampoPersonalizadoExpecifico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT COUNT(*) AS Marcadores FROM mantis_tag_table
+        ///WHERE NAME = &apos;$marcador&apos;;.
+        /// </summary>
+        internal static string RetornaQuantidadeDeMarcadoresExistente {
+            get {
+                return ResourceManager.GetString("RetornaQuantidadeDeMarcadoresExistente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT COUNT(*) AS projetos FROM mantis_project_table;.
+        /// </summary>
+        internal static string RetornaQuantidadeDeProjetoExistente {
+            get {
+                return ResourceManager.GetString("RetornaQuantidadeDeProjetoExistente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT COUNT(platform) AS plataforma FROM mantis_user_profile_table 
+        ///WHERE platform = &apos;$plataforma&apos;;.
+        /// </summary>
+        internal static string RetornaQuantidadePerfilExistente {
+            get {
+                return ResourceManager.GetString("RetornaQuantidadePerfilExistente", resourceCulture);
             }
         }
         
@@ -81,6 +130,16 @@ namespace CSharpSeleniumTemplate.Queries {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT username FROM mantis_user_table
+        ///WHERE username =&apos;$convidado&apos;;.
+        /// </summary>
+        internal static string RetornaUsuarioExpecifico {
+            get {
+                return ResourceManager.GetString("RetornaUsuarioExpecifico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT name FROM mantis_custom_field_table
         ///WHERE NAME = &apos;$namePersonalizado&apos;;.
         /// </summary>
@@ -91,11 +150,11 @@ namespace CSharpSeleniumTemplate.Queries {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT id FROM mantis_bug_table ORDER BY id DESC LIMIT 1 ;.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT COUNT(*) AS Tarefas FROM mantis_bug_table;.
         /// </summary>
-        internal static string VerificarSeExisteTarefera {
+        internal static string VerificaSeApagouTarefa {
             get {
-                return ResourceManager.GetString("VerificarSeExisteTarefera", resourceCulture);
+                return ResourceManager.GetString("VerificaSeApagouTarefa", resourceCulture);
             }
         }
     }

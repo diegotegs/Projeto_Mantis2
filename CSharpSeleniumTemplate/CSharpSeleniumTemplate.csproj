@@ -154,6 +154,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CriarTarefasQueries.resx</DependentUpon>
     </Compile>
+    <Compile Include="Queries\DeleteQueries.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeleteQueries.resx</DependentUpon>
+    </Compile>
     <Compile Include="Queries\InsertsQueries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -201,6 +206,10 @@
     <EmbeddedResource Include="Queries\CriarTarefasQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CriarTarefasQueries.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries\DeleteQueries.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DeleteQueries.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Queries\InsertsQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -139,6 +139,7 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string msgPortugues = "Preencha este campo.";
+            string msgExplorer = "Este é um campo obrigatório";
             string msgIngles = "Please fill out this field.";
             string msgJavaScripit = "validationMessage";
             #endregion
@@ -147,7 +148,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             accountPageFlows.ClicarPerfil("","123","7");
 
-            CollectionAssert.Contains(new[] { msgIngles, msgPortugues }, accountPage.GetMsgObrigatorioPlataforma(msgJavaScripit));
+            CollectionAssert.Contains(new[] { msgIngles, msgPortugues, msgExplorer }, accountPage.GetMsgObrigatorioPlataforma(msgJavaScripit));
         }
 
         [Test]
@@ -159,6 +160,7 @@ namespace CSharpSeleniumTemplate.Tests
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string msgPortugues = "Preencha este campo.";
             string msgIngles = "Please fill out this field.";
+            string msgExplorer = "Este é um campo obrigatório";
             string msgJavaScripit = "validationMessage";
             #endregion
 
@@ -166,7 +168,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             accountPageFlows.ClicarPerfil("Test", "", "7");
 
-            CollectionAssert.Contains(new[] { msgIngles, msgPortugues }, accountPage.GetMsgObrigatorioOS(msgJavaScripit));
+            CollectionAssert.Contains(new[] { msgIngles, msgPortugues, msgExplorer }, accountPage.GetMsgObrigatorioOS(msgJavaScripit));
         }
 
         [Test]
@@ -177,6 +179,7 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string msgPortugues = "Preencha este campo.";
+            string msgExplorer = "Este é um campo obrigatório";
             string msgIngles = "Please fill out this field.";
             string msgJavaScripit = "validationMessage";
             #endregion
@@ -185,7 +188,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             accountPageFlows.ClicarPerfil("Test", "Test Os","");
 
-            CollectionAssert.Contains(new[] { msgIngles, msgPortugues }, accountPage.GetMsgObrigatorioVersao(msgJavaScripit));
+            CollectionAssert.Contains(new[] { msgIngles, msgPortugues, msgExplorer }, accountPage.GetMsgObrigatorioVersao(msgJavaScripit));
         }
 
         [Test]

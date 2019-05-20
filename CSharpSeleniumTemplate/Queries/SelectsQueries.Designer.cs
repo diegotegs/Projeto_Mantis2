@@ -120,6 +120,15 @@ namespace CSharpSeleniumTemplate.Queries {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT summary FROM  mantis_bug_table;.
+        /// </summary>
+        internal static string RetornarTarefa {
+            get {
+                return ResourceManager.GetString("RetornarTarefa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT summary FROM  mantis_bug_table
         ///WHERE summary = &apos;$resumo&apos;;.
         /// </summary>

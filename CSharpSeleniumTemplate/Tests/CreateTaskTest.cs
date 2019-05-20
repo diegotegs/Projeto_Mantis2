@@ -42,13 +42,14 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string msgPortugues ="Preencha este campo.";
+            string msgExplorer = "Este é um campo obrigatório";
             string msgIngles = "Please fill out this field.";
             string msgJavaScripit = "validationMessage";
             #endregion
             loginFlows.EfetuarLogin(usuario,senha);
 
             createTaskFlows.CriarTarefa(resumo,"");
-            CollectionAssert.Contains(new[] { msgIngles, msgPortugues}, createTaskPage.RetornarMsgDescricao(msgJavaScripit));
+            CollectionAssert.Contains(new[] { msgIngles, msgPortugues, msgExplorer}, createTaskPage.RetornarMsgDescricao(msgJavaScripit));
             
 
         }
@@ -61,13 +62,14 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string msgPortugues = "Preencha este campo.";
+            string msgExplorer = "Este é um campo obrigatório";
             string msgIngles = "Please fill out this field.";
             string msgJavaScripit = "validationMessage";
             #endregion
             loginFlows.EfetuarLogin(usuario, senha);
 
             createTaskFlows.CriarTarefa("", descricao);
-            CollectionAssert.Contains(new[] { msgIngles, msgPortugues }, createTaskPage.RetornarMsgResumo(msgJavaScripit));
+            CollectionAssert.Contains(new[] { msgIngles, msgPortugues, msgExplorer }, createTaskPage.RetornarMsgResumo(msgJavaScripit));
             
 
         }
@@ -104,7 +106,9 @@ namespace CSharpSeleniumTemplate.Tests
 
             loginFlows.EfetuarLogin(usuario, senha);
 
-            createTaskFlows.CriarTarefa(resumo,descricao); 
+            createTaskFlows.CriarTarefa(resumo,descricao);
+
+            Assert.AreEqual(resumo, SelectsDBSteps.RetornaResumoCriadoSemParamero());
             Assert.That(createTaskPage.ValidarCriarTarefa().Contains("sucesso"));
         }
 

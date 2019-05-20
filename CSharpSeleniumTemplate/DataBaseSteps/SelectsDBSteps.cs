@@ -18,6 +18,12 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
             return DataBaseHelpers.RetornaDadosQuery(queryId)[0];
         }
 
+        public static string RetornaResumoCriadoSemParamero()
+        {
+            string queryId = SelectsQueries.RetornarTarefa;
+            return DataBaseHelpers.RetornaDadosQuery(queryId)[0];
+        }
+
         public static List<string> RetornaPerfil(string osGerado)
         {
             string queryPerfil = SelectsQueries.RetornaPerfilAdicionado.Replace("$os", osGerado);
@@ -73,6 +79,8 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
             string query = SelectsQueries.VerificaSeApagouTarefa;
             return Convert.ToInt32(DataBaseHelpers.RetornaDadosQuery(query)[0]);
         }
+
+       
 
         }
 

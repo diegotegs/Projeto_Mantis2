@@ -18,7 +18,7 @@ namespace CSharpSeleniumTemplate.Flows
             createTaskPage = new CreateTaskPage();
         }
         #endregion
-        public void CriarTarefa(string resumo , string descricao)
+        public void CriarTarefa (string resumo , string descricao)
         {
             createTaskPage.ClicarMenuNovaTarefa();
             createTaskPage.ClicarIdentificador();

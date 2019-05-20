@@ -11,7 +11,7 @@ namespace CSharpSeleniumTemplate.Pages
    public class CreateTaskPage : PageBase
     {
         #region Mapping
-        By selectCategory = By.Id("category_id");
+        By selectCategory = By.Name("category_id");
         By summaryField = By.Id("summary");
         By descriptionField = By.Id("description");
         By menuCriarTarefa = By.CssSelector("i.menu-icon.fa.fa-edit");       

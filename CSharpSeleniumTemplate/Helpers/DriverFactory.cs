@@ -44,6 +44,7 @@ namespace CSharpSeleniumTemplate.Helpers
 
                         if (execution.Equals("remota"))
                         {
+                            
                             ChromeOptions chrome = new ChromeOptions();
                             chrome.AddArgument("no-sandbox");
                             chrome.AddArgument("--allow-running-insecure-content");
@@ -58,11 +59,15 @@ namespace CSharpSeleniumTemplate.Helpers
                     case "ie":
                         if (execution.Equals("local"))
                         {
+                            
                             INSTANCE = new InternetExplorerDriver();
                         }
 
                         if (execution.Equals("remota"))
                         {
+
+                           
+                             
                             InternetExplorerOptions ie = new InternetExplorerOptions();
                             INSTANCE = new RemoteWebDriver(new Uri(seleniumHub), ie.ToCapabilities());
                         }
@@ -72,7 +77,10 @@ namespace CSharpSeleniumTemplate.Helpers
                     case "firefox":
                         if (execution.Equals("local"))
                         {
-                            INSTANCE = new FirefoxDriver();
+                          
+                            
+                            INSTANCE = new FirefoxDriver();                            
+
                         }
 
                         if (execution.Equals("remota"))

@@ -140,6 +140,9 @@ WHERE NAME = '$marcador';</value>
     <value>SELECT COUNT(platform) AS plataforma FROM mantis_user_profile_table 
 WHERE platform = '$plataforma';</value>
   </data>
+  <data name="RetornarTarefa" xml:space="preserve">
+    <value>SELECT summary FROM  mantis_bug_table;</value>
+  </data>
   <data name="RetornaTarefaPorResumo" xml:space="preserve">
     <value>SELECT summary FROM  mantis_bug_table
 WHERE summary = '$resumo';</value>

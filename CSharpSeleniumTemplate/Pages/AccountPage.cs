@@ -12,7 +12,7 @@ namespace CSharpSeleniumTemplate.Pages
         By linkMyAccount = By.XPath("(//a[contains(@href,'/account_page.php')])[2]");
         By linkPreferences = By.LinkText("Preferências");
         By linkManageColumns = By.LinkText("Gerenciar Colunas");
-        By linkProfile = By.LinkText("Perfís");
+        By linkProfile = By.XPath("//div[2]/div[2]/div/ul/li[4]/a");
         By linkTokenApi = By.LinkText("Tokens API");
 
         By btnRefreshUser = By.XPath("//input[@value='Atualizar Usuário']");

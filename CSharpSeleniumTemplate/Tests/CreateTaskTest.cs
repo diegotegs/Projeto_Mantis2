@@ -38,7 +38,8 @@ namespace CSharpSeleniumTemplate.Tests
         public void ValidarCampoObrigatorioDescricao()
         {
             #region Parameters
-            string resumo = "Teste Resumo";            
+            string resumo = "Teste Resumo";
+            string descrisao = "";
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string msgPortugues ="Preencha este campo.";
@@ -48,16 +49,19 @@ namespace CSharpSeleniumTemplate.Tests
             #endregion
             loginFlows.EfetuarLogin(usuario,senha);
 
-            createTaskFlows.CriarTarefa(resumo,"");
+            createTaskFlows.CriarTarefa(resumo,descrisao);
+
             CollectionAssert.Contains(new[] { msgIngles, msgPortugues, msgExplorer}, createTaskPage.RetornarMsgDescricao(msgJavaScripit));
             
 
         }
+
         [Test]
         [Category("ValidarCamposObrigatorio")]
         public void ValidarCampoObrigatorioResumo()
         {
             #region Parameters
+            string resumo = "";
             string descricao = "Teste descrição";
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
@@ -68,18 +72,22 @@ namespace CSharpSeleniumTemplate.Tests
             #endregion
             loginFlows.EfetuarLogin(usuario, senha);
 
-            createTaskFlows.CriarTarefa("", descricao);
+            createTaskFlows.CriarTarefa(resumo, descricao);
+
             CollectionAssert.Contains(new[] { msgIngles, msgPortugues, msgExplorer }, createTaskPage.RetornarMsgResumo(msgJavaScripit));
             
 
         }
+
         [Test]
         [Category("CriarTarefa")]
         public void CriarNovaTarefa()
         {
             #region Parameters
-            string resumo = "Teste Resumo " + GeneralHelpers.ReturnStringWithRandomNumbers(6);
+            string controle = GeneralHelpers.ReturnStringWithRandomNumbers(6);
+            string resumo = "Teste Resumo " + controle;
             string descricao = "Teste descrição";
+            string msgEsperada = "sucesso";            
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             #endregion
@@ -87,8 +95,9 @@ namespace CSharpSeleniumTemplate.Tests
             loginFlows.EfetuarLogin(usuario, senha);
 
             createTaskFlows.CriarTarefa(resumo, descricao);
-            Assert.That(createTaskPage.ValidarCriarTarefa().Contains("sucesso"));
-            Assert.True(SelectsDBSteps.RetornaResumoCriado(resumo).Contains("Teste Resumo"));
+
+            Assert.That(createTaskPage.ValidarCriarTarefa().Contains(msgEsperada));
+            Assert.True(SelectsDBSteps.RetornaResumoCriadoDB(resumo).Contains(controle));
 
         }
 
@@ -108,7 +117,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             createTaskFlows.CriarTarefa(resumo,descricao);
 
-            Assert.AreEqual(resumo, SelectsDBSteps.RetornaResumoCriadoSemParamero());
+            Assert.AreEqual(resumo, SelectsDBSteps.RetornaResumoCriadoSemParameroDB());
             Assert.That(createTaskPage.ValidarCriarTarefa().Contains("sucesso"));
         }
 

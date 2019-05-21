@@ -22,12 +22,13 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string msgEsperada = "Nenhum registro de mudança disponível";
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
 
             changeLogPage.ClicarMenuRegistroDeMudanca();            
-            Assert.That(changeLogPage.RetornarMsg().Contains("Nenhum registro de mudança disponível"));
+            Assert.That(changeLogPage.RetornarMsg().Contains(msgEsperada));
 
 
         }

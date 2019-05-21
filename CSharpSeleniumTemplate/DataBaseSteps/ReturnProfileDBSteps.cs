@@ -10,7 +10,7 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
 {
    public  class ReturnProfileDBSteps
     {
-        public static string RetornaPerfil(string osGerado)
+        public static string RetornaPerfilDB(string osGerado)
         {
             string queryPerfil = SelectsQueries.RetornaPerfilAdicionado.Replace("$os", osGerado);
             return DataBaseHelpers.RetornaDadosQuery(queryPerfil)[0];

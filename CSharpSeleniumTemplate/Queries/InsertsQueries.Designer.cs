@@ -61,20 +61,20 @@ namespace CSharpSeleniumTemplate.Queries {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a INSERT INTO mantis_custom_field_table (name)VALUES(&apos;$campoPersonalizado&apos;);.
-        /// </summary>
-        internal static string MassaCampoPersonalizado {
-            get {
-                return ResourceManager.GetString("MassaCampoPersonalizado", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a INSERT INTO mantis_user_profile_table (user_id,platform,os,os_build, description)VALUES(1,&apos;$plataforma&apos;,&apos;$so&apos;,&apos;$build&apos;,&apos;&apos;);.
         /// </summary>
         internal static string MassaDeDadoCriarPerfil {
             get {
                 return ResourceManager.GetString("MassaDeDadoCriarPerfil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a INSERT INTO mantis_custom_field_table (name)VALUES(&apos;$campoPersonalizado&apos;);.
+        /// </summary>
+        internal static string MassaDeDadosCampoPersonalizado {
+            get {
+                return ResourceManager.GetString("MassaDeDadosCampoPersonalizado", resourceCulture);
             }
         }
         

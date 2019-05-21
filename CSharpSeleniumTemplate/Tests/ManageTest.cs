@@ -5,10 +5,7 @@ using CSharpSeleniumTemplate.Helpers;
 using CSharpSeleniumTemplate.Pages;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CSharpSeleniumTemplate.Tests
 {
@@ -34,6 +31,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             managePage.ClicarMenuGerenciar();
             managePage.ClicarGerenciarUsuario();
+
             Assert.That(managePage.VerificarExistenciaDoBotaoCriarNovaConta());
         }
 
@@ -50,6 +48,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             managePage.ClicarMenuGerenciar();
             managePage.ClicarGerenciarProjeto();
+
             Assert.That(managePage.VerificarExistenciaDoBotaoCriarNovaProjeto());
         }
 
@@ -66,6 +65,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             managePage.ClicarMenuGerenciar();
             managePage.ClicarGerenciarMarcadores();
+
             Assert.That(managePage.VerificarExistenciaDoLinkTodos());
         }
 
@@ -82,6 +82,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             managePage.ClicarMenuGerenciar();
             managePage.ClicarGerenciarCamposPersonalizados();
+
             Assert.That(managePage.VerificarExistenciaDoBotaoNovoCampoPersonalizado());
         }
 
@@ -98,6 +99,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             managePage.ClicarMenuGerenciar();
             managePage.ClicarGerenciarPerfisGlobal();
+
             Assert.That(managePage.VerificarExistenciaDoBotaoAdicionarPerfil());
         }
 
@@ -114,6 +116,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             managePage.ClicarMenuGerenciar();
             managePage.ClicarGerenciarPlugins();
+
             Assert.That(managePage.VerificarExistenciaDoBotaoAtualizar());
         }
 
@@ -129,6 +132,7 @@ namespace CSharpSeleniumTemplate.Tests
             loginFlows.EfetuarLogin(usuario, senha);
 
             manageSettingFlows.GerenciarConfiguracaoSubsMenu();
+
             Assert.That(managePage.VerificarExistenciaDoBotaoRelatoriosDePermissoes());
         }
 
@@ -139,10 +143,11 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string msgEsperada = "Operação realizada com sucesso.";
             int qtsAntes;
             int qtsDepois;
             #endregion
-            qtsAntes = SelectsDBSteps.RetornaQuantidadeDeProjetosCriados();
+            qtsAntes = SelectsDBSteps.RetornaQuantidadeDeProjetosCriadosDB();
             loginFlows.EfetuarLogin(usuario, senha);
 
             managePage.ClicarMenuGerenciar();
@@ -151,9 +156,11 @@ namespace CSharpSeleniumTemplate.Tests
             managePage.PreencherNomeProjeto();
             managePage.PreencherDescricaoProjeto();
             managePage.ClicarAdicionarProjeto();
-            qtsDepois = SelectsDBSteps.RetornaQuantidadeDeProjetosCriados();
+
+            qtsDepois = SelectsDBSteps.RetornaQuantidadeDeProjetosCriadosDB();
+
             Assert.Less(qtsAntes, qtsDepois);
-            Assert.AreEqual("Operação realizada com sucesso.", managePage.MenssagemSucesso());
+            Assert.AreEqual(msgEsperada, managePage.MenssagemSucesso());
             
 
         }
@@ -169,7 +176,7 @@ namespace CSharpSeleniumTemplate.Tests
             int qtsAntes;
             int qtsDepois;
             #endregion
-            qtsAntes = SelectsDBSteps.RetornaQuantidadeDeProjetosCriados();
+            qtsAntes = SelectsDBSteps.RetornaQuantidadeDeProjetosCriadosDB();
             loginFlows.EfetuarLogin(usuario, senha);
 
             managePage.ClicarMenuGerenciar();
@@ -178,7 +185,9 @@ namespace CSharpSeleniumTemplate.Tests
             managePage.ClicarPrimeiroProjeto();
             managePage.ClicarApagarProjeto();
             managePage.ConfirmarApagarProjeto();
-            qtsDepois = SelectsDBSteps.RetornaQuantidadeDeProjetosCriados();
+
+            qtsDepois = SelectsDBSteps.RetornaQuantidadeDeProjetosCriadosDB();
+
             Assert.Greater(qtsAntes,qtsDepois);
             Assert.That(managePage.VerificarExistenciaDoBotaoCriarNovaProjeto());
 
@@ -192,6 +201,7 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string msgError = "Um campo necessário 'Categoria' estava vazio.";
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -199,7 +209,8 @@ namespace CSharpSeleniumTemplate.Tests
             managePage.ClicarMenuGerenciar();
             managePage.ClicarGerenciarProjeto();
             managePage.ClicarAdicionarCategoria();
-            Assert.True(managePage.MenssagemDeErro().Contains("Um campo necessário 'Categoria' estava vazio."));
+
+            Assert.True(managePage.MenssagemDeErro().Contains(msgError));
         }
 
         [Test]
@@ -209,6 +220,7 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string msgError = "Uma categoria com este nome já existe.";
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -217,11 +229,11 @@ namespace CSharpSeleniumTemplate.Tests
             managePage.ClicarGerenciarProjeto();           
             managePage.PreencherCampoCategoria();
             managePage.ClicarAdicionarCategoria();
-            Assert.True(managePage.MenssagemDeErro().Contains("Uma categoria com este nome já existe."));
+
+            Assert.AreEqual(msgError, managePage.MenssagemDeErro());
 
 
-        }
-  
+        }  
 
         [Test]
         [Category("CRUDMarcadores")]
@@ -240,7 +252,7 @@ namespace CSharpSeleniumTemplate.Tests
             managePage.PreecherDescricaoMarcadores();
             managePage.ClicarCriarMarcadores();
 
-            Assert.AreEqual(managePage.confirmCreateMarkers,SelectsDBSteps.RetornaMarcadoresCriado(managePage.confirmCreateMarkers));
+            Assert.AreEqual(managePage.confirmCreateMarkers,SelectsDBSteps.RetornaMarcadoresCriadoDB(managePage.confirmCreateMarkers));
             Assert.AreEqual(managePage.confirmCreateMarkers, managePage.VerificarCriarMarcadores());
         }
 
@@ -268,7 +280,7 @@ namespace CSharpSeleniumTemplate.Tests
             managePage.ClicarApagarMarcador();
             managePage.ClicarApagarMarcador();
 
-            Assert.AreEqual(0, SelectsDBSteps.VerificarMarcadorDeletado(marcador));
+            Assert.AreEqual(0, SelectsDBSteps.VerificarMarcadorDeletadoDB(marcador));
             Assert.Greater(Convert.ToInt32(managePage.qtsRegister), Convert.ToInt32(managePage.qtsRegister)-1);
 
 
@@ -287,6 +299,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             manageSettingFlows.GerenciarConfiguracaoSubsMenu();
             managePage.ClicarRelatorioDeConfiguracao();
+
             Assert.True(managePage.GetBotaoCriarOpcaoDeConfiguracao());
         }
 
@@ -303,6 +316,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             manageSettingFlows.GerenciarConfiguracaoSubsMenu();
             managePage.ClicarLiminaresFluxoDeTrabalho();
+
             Assert.True(managePage.GetBotaoAtualizarConfiguracao());
         }
 
@@ -319,6 +333,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             manageSettingFlows.GerenciarConfiguracaoSubsMenu();
             managePage.ClicarTransicoesFluxoDeTrabalho();
+
             Assert.True(managePage.GetBotaoAtualizarConfiguracao());
         }
 
@@ -335,6 +350,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             manageSettingFlows.GerenciarConfiguracaoSubsMenu();
             managePage.ClicarNotificacaoPorEmail();
+
             Assert.True(managePage.GetBotaoAtualizarConfiguracao());
         }
 
@@ -351,6 +367,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             manageSettingFlows.GerenciarConfiguracaoSubsMenu();
             managePage.ClicarGerenciarColunas();
+
             Assert.True(managePage.GetBotaoAtualizarColunas());
         }
 

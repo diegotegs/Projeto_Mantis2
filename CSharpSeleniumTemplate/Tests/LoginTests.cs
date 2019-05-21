@@ -3,7 +3,7 @@ using CSharpSeleniumTemplate.Flows;
 using CSharpSeleniumTemplate.Helpers;
 using CSharpSeleniumTemplate.Pages;
 using NUnit.Framework;
-using System.Collections;
+
 
 
 namespace CSharpSeleniumTemplate.Tests
@@ -14,14 +14,7 @@ namespace CSharpSeleniumTemplate.Tests
         #region Pages and Flows Objects
         [AutoInstance] LoginPage loginPage;        
         [AutoInstance] LoginFlows loginFlows;
-        #endregion
-
-        #region Data Driven Providers
-        public static IEnumerable EfetuarLoginInformandoUsuarioInvalidoIProvider()
-        {
-            return GeneralHelpers.ReturnCSVData(GeneralHelpers.ReturnProjectPath() + "Resources/TestData/Login/EfetuarLoginInformandoUsuarioInvalidoData.csv");
-        }
-        #endregion
+        #endregion        
 
         [Test]
         [Category("Logar")]
@@ -47,12 +40,14 @@ namespace CSharpSeleniumTemplate.Tests
         {
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
-            string senha ="123456";
+            string senha = GeneralHelpers.ReturnStringWithRandomCharacters(4);
+            string msgValidar = "não estão corretos";
+
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
 
-            Assert.That(loginPage.MenssagemErroSenha().Contains("não estão corretos"));
+            Assert.That(loginPage.MenssagemErroSenha().Contains(msgValidar));
            
         }
                

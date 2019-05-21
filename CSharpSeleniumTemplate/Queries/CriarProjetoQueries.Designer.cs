@@ -22,14 +22,14 @@ namespace CSharpSeleniumTemplate.Queries {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class CriarProjeto {
+    internal class CriarProjetoQueries {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CriarProjeto() {
+        internal CriarProjetoQueries() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace CSharpSeleniumTemplate.Queries {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSharpSeleniumTemplate.Queries.CriarProjeto", typeof(CriarProjeto).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSharpSeleniumTemplate.Queries.CriarProjetoQueries", typeof(CriarProjetoQueries).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace CSharpSeleniumTemplate.Queries {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a insert into mantis_project_table (name,description,inherit_global) values (&apos;$name&apos; , &apos;$descricao&apos;, 1) ;.
         /// </summary>
-        internal static string IniciarProjetoCriado {
+        internal static string MassaDeDadosCriarProjeto {
             get {
-                return ResourceManager.GetString("IniciarProjetoCriado", resourceCulture);
+                return ResourceManager.GetString("MassaDeDadosCriarProjeto", resourceCulture);
             }
         }
     }

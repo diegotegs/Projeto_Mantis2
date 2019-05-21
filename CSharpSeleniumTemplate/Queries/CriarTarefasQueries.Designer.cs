@@ -63,9 +63,9 @@ namespace CSharpSeleniumTemplate.Queries {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a INSERT INTO mantis_bug_text_table (id,description,steps_to_reproduce,additional_information) VALUES(1,&apos;Teste Descricao&apos;,&apos;reproduz&apos;, &apos;informaçoes&apos;);.
         /// </summary>
-        internal static string MassaAdicionarMarcadores {
+        internal static string MassaDeDadosAdicionarMarcadores {
             get {
-                return ResourceManager.GetString("MassaAdicionarMarcadores", resourceCulture);
+                return ResourceManager.GetString("MassaDeDadosAdicionarMarcadores", resourceCulture);
             }
         }
         
@@ -83,18 +83,18 @@ namespace CSharpSeleniumTemplate.Queries {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a INSERT INTO mantis_tag_table (user_id,NAME,description) VALUES(1,&apos;XPTO 2019&apos;,&apos;&apos;);.
         /// </summary>
-        internal static string MassaPreencherCamposTarefa {
+        internal static string MassaDeDadosPreencherCamposTarefa {
             get {
-                return ResourceManager.GetString("MassaPreencherCamposTarefa", resourceCulture);
+                return ResourceManager.GetString("MassaDeDadosPreencherCamposTarefa", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a INSERT INTO mantis_bug_tag_table(bug_id,tag_id,user_id) VALUES (1,1,1);.
         /// </summary>
-        internal static string MassaPreencherOsCampos {
+        internal static string MassaDeDadosPreencherOsCampos {
             get {
-                return ResourceManager.GetString("MassaPreencherOsCampos", resourceCulture);
+                return ResourceManager.GetString("MassaDeDadosPreencherOsCampos", resourceCulture);
             }
         }
     }

@@ -144,10 +144,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Queries\CriarProjeto.Designer.cs">
+    <Compile Include="Queries\CriarProjetoQueries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CriarProjeto.resx</DependentUpon>
+      <DependentUpon>CriarProjetoQueries.resx</DependentUpon>
     </Compile>
     <Compile Include="Queries\CriarTarefasQueries.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -199,9 +199,9 @@
     <Content Include="Resources\Files\anexo_ocorrencia.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Queries\CriarProjeto.resx">
+    <EmbeddedResource Include="Queries\CriarProjetoQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CriarProjeto.Designer.cs</LastGenOutput>
+      <LastGenOutput>CriarProjetoQueries.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Queries\CriarTarefasQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>

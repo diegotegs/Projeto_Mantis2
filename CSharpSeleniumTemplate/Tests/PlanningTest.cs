@@ -3,11 +3,7 @@ using CSharpSeleniumTemplate.Flows;
 using CSharpSeleniumTemplate.Helpers;
 using CSharpSeleniumTemplate.Pages;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CSharpSeleniumTemplate.Tests
 {
@@ -26,12 +22,14 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string msgError = "Nenhum planejamento disponível";
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
 
             planningPage.ClicarPlanejamento();
-            Assert.That(planningPage.RetornoPlanejamentoIndisponivel().Contains("Nenhum planejamento disponível"));
+
+            Assert.That(planningPage.RetornoPlanejamentoIndisponivel().Contains(msgError));
 
         }
     }

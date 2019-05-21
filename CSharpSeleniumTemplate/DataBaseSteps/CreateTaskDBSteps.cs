@@ -10,12 +10,12 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
 {
     class CreateTaskDBSteps
     {
-        public static void MassaCriarTarefa()
+        public static void CriarTarefaDB()
         {
             string dadosCriarTarefas = CriarTarefasQueries.MassaDeDadosCriarTarefas + 
-                CriarTarefasQueries.MassaAdicionarMarcadores + 
-                CriarTarefasQueries.MassaPreencherCamposTarefa + 
-                CriarTarefasQueries.MassaPreencherOsCampos;            
+                CriarTarefasQueries.MassaDeDadosAdicionarMarcadores + 
+                CriarTarefasQueries.MassaDeDadosPreencherCamposTarefa + 
+                CriarTarefasQueries.MassaDeDadosPreencherOsCampos;            
             DataBaseHelpers.ExecuteQuery( dadosCriarTarefas);
         }
     }

@@ -18,17 +18,19 @@ namespace CSharpSeleniumTemplate.Pages
         By btnRefreshGravity = By.XPath("//input[@value='Atualizar Gravidade']");
         By btnSolve = By.XPath("//input[@value='Resolver Tarefas']");
         By btnAppliction = By.XPath("//input[@value='Aplicar ']");
-        By btnDeleteMarkers = By.XPath("//input[@value='Apagar Marcador']");        
+        By btnDeleteMarkers = By.XPath("//input[@value='Apagar Marcador']"); 
+        
         By comboBoxViewTask = By.Name("action");
-        By linkTaksMarkers = By.XPath("//table[@id='buglist']/tbody/tr/td[4]/a");
         By comboBoxChooseUser = By.Name("assign");
-        By checkBoxTast = By.CssSelector("span.lbl"); 
-         By contentId = By.XPath("//table[@id='buglist']/tbody/tr/td[4]");
+        By checkBoxTast = By.CssSelector("span.lbl");
+        By comboBoxGravity = By.Name("severity");
+
+        By linkTaksMarkers = By.XPath("//table[@id='buglist']/tbody/tr/td[4]/a");
+        By contentId = By.XPath("//table[@id='buglist']/tbody/tr/td[4]");
         By viewTaskMenu = By.CssSelector("i.menu-icon.fa.fa-list-alt");
         By contentConfirmDelete = By.XPath("//div[@id='action-group-div']/form/div/div[2]/div/div/table/tbody/tr[4]/td");
         By FilterField = By.Id("filter-search-txt");
         By firstTaskInTableGravity = By.XPath("//table[@id='buglist']/tbody/tr/td[8]");
-        By comboBoxGravity = By.Name("severity");
         By contentSolve = By.XPath("//div/span");
         By contentClose = By.XPath("//input[@value='Fechar Tarefas']");
         By fieldApplicationMarkers = By.Id("tag_string");
@@ -48,33 +50,23 @@ namespace CSharpSeleniumTemplate.Pages
         {
             Click(viewTaskMenu);
         }
-
-        public void SelecionarTarefa()
-        {
-            Click(checkBoxTast);
-        }
-       
         public void ClicarBNTOk()
         {
             Click(bntOk);
         }
-
         public void ClicarApagarTarefa()
         {
             Click(btnConfirm);
         }
-
         public void clicarAplicarFiltro()
         {
             Click(btnApplicationFilter);
         }
-
-        public void LimparCampoFiltro()
+        public void ClicarELimparCampoFiltro()
         {
             Clear(FilterField);
             Click(btnApplicationFilter);
         }
-
         public void ClicarAtualizarGravidade()
         {
             Click(btnRefreshGravity);
@@ -95,7 +87,6 @@ namespace CSharpSeleniumTemplate.Pages
         {
             Click(linkTaksMarkers);
         }
-
         public void ClicarNoMarcador()
         {
             Click(firstMarkerApplication);
@@ -105,23 +96,20 @@ namespace CSharpSeleniumTemplate.Pages
             Click(btnDeleteMarkers);
         }
 
-          
-
         //Selecionar --------------------------------------------------------------------------------------------------
-
+       
+        public void SelecionarTarefa()
+        {
+            Click(checkBoxTast);
+        }
         public void SelecionarOpcao(string opcao)
         {
             ComboBoxSelectByVisibleText(comboBoxViewTask, opcao);
         }      
-
-
         public void SelecionarGrauDeGravidade(string gravidade)
         {
             ComboBoxSelectByVisibleText(comboBoxGravity, gravidade);
-        }
-
-      
-
+        }        
 
         //Verificar ----------------------------------------------------------------------------------------------------
 
@@ -129,12 +117,10 @@ namespace CSharpSeleniumTemplate.Pages
         {
             return ReturnIfElementExists(checkBoxTast);
         }               
-       
         public string RetornaConteudoTabelaTarefa ()
         {
             return GetText(contentId);
         }
-
         public bool VerificarSeExisteAlgumMarcadorNaTarefa()
         {
             return ReturnIfElementExists(firstMarkerApplication);
@@ -146,36 +132,30 @@ namespace CSharpSeleniumTemplate.Pages
         {
             attributeIDConfirmDelete = GetText(contentConfirmDelete);
         }
-
         public void GetPrimeiroConteudoDaTabela()
         {
             recoverAttributeTableOne = GetText(contentId);
         }
-
         public void GetGravidade()
         {
             gravidade = GetText(firstTaskInTableGravity);
         }
-
         public string GetGravidadeModificada()
         {
             return GetText(firstTaskInTableGravity);
         }
-
         public string GetEstadoTarefa()
         {
             return GetText(contentSolve);
         }
-
         public string GetMarcadores()
         {
             return GetText(markersOfTask);
         }
-        
         public string GetMarcadorDeletado()
         {
             return GetText(firstMarkerApplication);
-        }
+        }       
 
         //Preencher --------------------------------------------------------------------------------------------
 
@@ -183,18 +163,14 @@ namespace CSharpSeleniumTemplate.Pages
         {
             SendKeys(FilterField, recoverAttributeTableOne);
         }
-
         public void PreencherFiltroComIDItemExcluido()
         {
             SendKeys(FilterField,attributeIDConfirmDelete);
         }
-
         public void PreecherAplicarMarcadores(string marcadores)
         {
             SendKeys(fieldApplicationMarkers,marcadores);
-        }
-
-       
+        }      
 
         #endregion
     }

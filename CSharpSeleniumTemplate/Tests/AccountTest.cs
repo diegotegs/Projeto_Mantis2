@@ -30,6 +30,7 @@ namespace CSharpSeleniumTemplate.Tests
             loginFlows.EfetuarLogin(usuario, senha);
 
             accountPage.ClicarAlterarConta();
+
             Assert.True(accountPage.GetBotaoAtualizarUsuario());
         }
 
@@ -43,8 +44,10 @@ namespace CSharpSeleniumTemplate.Tests
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
+
             accountPage.ClicarAlterarConta();
             accountPage.ClicarPreferencias();
+
             Assert.True(accountPage.GetBotaoAtualizarPreferencias());
         }
 
@@ -58,8 +61,10 @@ namespace CSharpSeleniumTemplate.Tests
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
+
             accountPage.ClicarAlterarConta();
             accountPage.ClicarGerenciarColunas();
+
             Assert.True(accountPage.GetBotaoAtualizarColunas());
         }
 
@@ -76,6 +81,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             accountPage.ClicarAlterarConta();
             accountPage.ClicarPerfil();
+
             Assert.That(accountPage.ValidarAbaPerfil());
         }
 
@@ -92,8 +98,10 @@ namespace CSharpSeleniumTemplate.Tests
 
             accountPage.ClicarAlterarConta();
             accountPage.ClicarEmTokenApi();
+
             Assert.True(accountPage.ValidarAbaTokenApi());
         }
+
         [Test]
         [Category("TokenDeApi")]
         public void CriarTokenApi()
@@ -101,6 +109,7 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string msgEsperada = "Tenha em conta que este token só será exibido uma vez.";
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -109,7 +118,8 @@ namespace CSharpSeleniumTemplate.Tests
             accountPage.ClicarEmTokenApi();
             accountPage.PreecherCampoNomeToken(GeneralHelpers.ReturnStringWithRandomCharacters(3));
             accountPage.ClicarCriarTokenApi();
-            Assert.AreEqual("Tenha em conta que este token só será exibido uma vez.", accountPage.ValidarRetornoCriarToken());
+
+            Assert.AreEqual(msgEsperada, accountPage.ValidarRetornoCriarToken());
         }
 
         [Test]
@@ -128,6 +138,7 @@ namespace CSharpSeleniumTemplate.Tests
             Assume.That(accountPage.VerificarSeExisteToken());
             accountPage.GetTokenRevogado();
             accountPage.ClicarEmRevogar();
+
             Assert.AreEqual("O Token API \"" + accountPage.tokenRevoked + "\" foi revogado.", accountPage.ValidarRetornoRevogarToken());
         }
 
@@ -138,6 +149,9 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string os ="Os "+GeneralHelpers.ReturnStringWithRandomNumbers(2);
+            string versao ="Versão "+GeneralHelpers.ReturnStringWithRandomNumbers(4);
+            string plataforma = "";
             string msgPortugues = "Preencha este campo.";
             string msgExplorer = "Este é um campo obrigatório";
             string msgIngles = "Please fill out this field.";
@@ -146,7 +160,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             loginFlows.EfetuarLogin(usuario, senha);
 
-            accountPageFlows.ClicarPerfil("","123","7");
+            accountPageFlows.ClicarPerfil(plataforma,os,versao);
 
             CollectionAssert.Contains(new[] { msgIngles, msgPortugues, msgExplorer }, accountPage.GetMsgObrigatorioPlataforma(msgJavaScripit));
         }
@@ -158,6 +172,9 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string plataforma = "Plataforma " + GeneralHelpers.ReturnStringWithRandomNumbers(3);
+            string versao = "Versão " + GeneralHelpers.ReturnStringWithRandomNumbers(2);
+            string os = "";
             string msgPortugues = "Preencha este campo.";
             string msgIngles = "Please fill out this field.";
             string msgExplorer = "Este é um campo obrigatório";
@@ -166,7 +183,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             loginFlows.EfetuarLogin(usuario, senha);
 
-            accountPageFlows.ClicarPerfil("Test", "", "7");
+            accountPageFlows.ClicarPerfil(plataforma,os,versao);
 
             CollectionAssert.Contains(new[] { msgIngles, msgPortugues, msgExplorer }, accountPage.GetMsgObrigatorioOS(msgJavaScripit));
         }
@@ -178,6 +195,9 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
+            string plataforma = "Plataforma " + GeneralHelpers.ReturnStringWithRandomNumbers(3);
+            string os = "Os " + GeneralHelpers.ReturnStringWithRandomNumbers(2);
+            string versao = "";
             string msgPortugues = "Preencha este campo.";
             string msgExplorer = "Este é um campo obrigatório";
             string msgIngles = "Please fill out this field.";
@@ -186,7 +206,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             loginFlows.EfetuarLogin(usuario, senha);
 
-            accountPageFlows.ClicarPerfil("Test", "Test Os","");
+            accountPageFlows.ClicarPerfil(plataforma, os,versao);
 
             CollectionAssert.Contains(new[] { msgIngles, msgPortugues, msgExplorer }, accountPage.GetMsgObrigatorioVersao(msgJavaScripit));
         }
@@ -205,8 +225,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             accountPageFlows.ClicarPerfil(accountPage.plataforma, accountPage.so , accountPage.versao);
 
-            Assert.AreEqual(accountPage.plataforma, accountPage.retornaValorDB());
-            
+            Assert.AreEqual(accountPage.plataforma, accountPage.retornaValorDB());            
             Assert.True(accountPage.RetornaPerfisAdicionado().Contains(accountPage.GetValorPerfilAdicionado()));
 
         }
@@ -223,7 +242,7 @@ namespace CSharpSeleniumTemplate.Tests
             string build = GeneralHelpers.ReturnStringWithRandomCharacters(5);
 
             #endregion
-            InsertsDBSteps.CriarPerfil(plataforma,os,build);
+            InsertsDBSteps.CriarPerfilDB(plataforma,os,build);
             loginFlows.EfetuarLogin(usuario, senha);
 
             accountPage.ClicarAlterarConta();
@@ -234,7 +253,7 @@ namespace CSharpSeleniumTemplate.Tests
             accountPage.ClicarEmApagar();
             accountPage.ClicarEnviar();
 
-            Assert.AreEqual(0, SelectsDBSteps.VerificarQuantidadeDePerfilExistente(plataforma));
+            Assert.AreEqual(0, SelectsDBSteps.VerificarQuantidadeDePerfilExistenteDB(plataforma));
             Assert.Greater(accountPage.amountOption , accountPage.restOption);
             
         }

@@ -13,16 +13,11 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
         public static void CriarProjetoBD(string nome, string descricao)
         {
             
-            string inserirProjeto = CriarProjeto.IniciarProjetoCriado.Replace("$name", nome ).
+            string inserirProjeto = CriarProjetoQueries.MassaDeDadosCriarProjeto.Replace("$name", nome ).
                 Replace("$descricao", descricao);
             
             DataBaseHelpers.ExecuteQuery(inserirProjeto);
-
             
-
-
-
-           
         }
     }
 }

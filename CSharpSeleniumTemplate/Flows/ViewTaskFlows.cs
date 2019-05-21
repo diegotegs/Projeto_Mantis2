@@ -1,10 +1,6 @@
 ﻿using CSharpSeleniumTemplate.Pages;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CSharpSeleniumTemplate.Flows
 {
@@ -19,9 +15,10 @@ namespace CSharpSeleniumTemplate.Flows
         public void SelecionarCombox(string opcao)
         {
             viewTaskPage.ClicarMenuVerTarefa();
-            viewTaskPage.LimparCampoFiltro();
+            viewTaskPage.ClicarELimparCampoFiltro();
 
             Assume.That(viewTaskPage.VerificarElementoSeExiste());
+
             viewTaskPage.SelecionarTarefa();
             viewTaskPage.GetPrimeiroConteudoDaTabela();
             viewTaskPage.SelecionarOpcao(opcao);

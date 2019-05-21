@@ -25,7 +25,7 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             #endregion
-            DeleteChargesDBSteps.DeletaUsuarios();
+            DeleteChargesDBSteps.DeletaUsuariosDB();
             loginFlows.EfetuarLogin(usuario, senha);
 
             inviteUserPage.ClicarConvidarUsuario();
@@ -35,7 +35,7 @@ namespace CSharpSeleniumTemplate.Tests
             inviteUserPage.SelecionarNivelDeAcesso();
             inviteUserPage.ClicarEmCriarNovoUsuario();
 
-            Assert.AreEqual(inviteUserPage.returnUser, SelectsDBSteps.RetornaConvidadoAdicionado(inviteUserPage.returnUser));
+            Assert.AreEqual(inviteUserPage.returnUser, SelectsDBSteps.RetornaConvidadoAdicionadoDB(inviteUserPage.returnUser));
             Assert.True(inviteUserPage.ValidarMenssagemSucesso().Contains(inviteUserPage.returnUser));
         }
     }

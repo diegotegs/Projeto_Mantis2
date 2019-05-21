@@ -12,9 +12,9 @@ namespace CSharpSeleniumTemplate.Pages
         By fieldName = By.Id("user-username");
         By fieldRealName = By.Id("user-realname");
         By fieldEmail = By.Id("email-field");
+        By msgSucessful = By.XPath("//div[@id='main-container']/div[2]/div[2]/div/div/div/div[2]/p");
         By selectAccessLevel = By.Id("user-access-level");
         By btnCreateUser = By.XPath("//form[@id='manage-user-create-form']/div/div[3]/input");
-        By msgSucessful = By.XPath("//div[@id='main-container']/div[2]/div[2]/div/div/div/div[2]/p");
 
         public string returnUser; 
 
@@ -25,6 +25,16 @@ namespace CSharpSeleniumTemplate.Pages
         {
             Click(linkInviteUser);
         }
+        public void ClicarEmCriarNovoUsuario()
+        {
+            Click(btnCreateUser);
+        }
+
+        public void SelecionarNivelDeAcesso()
+        {
+            ComboBoxSelectByVisibleText(selectAccessLevel, "desenvolvedor");
+        }
+
         public void PreencherUsuario()
         {
             returnUser = "Test " + GeneralHelpers.ReturnStringWithRandomNumbers(2);
@@ -39,14 +49,7 @@ namespace CSharpSeleniumTemplate.Pages
         {
             SendKeys(fieldEmail, "EmailTest@"+GeneralHelpers.ReturnStringWithRandomCharacters(3)+".br");
         }
-        public void SelecionarNivelDeAcesso()
-        {
-            ComboBoxSelectByVisibleText(selectAccessLevel, "desenvolvedor");
-        }
-        public void ClicarEmCriarNovoUsuario()
-        {
-            Click(btnCreateUser);
-        }
+
         public string ValidarMenssagemSucesso()
         {
             return GetText(msgSucessful);

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CSharpSeleniumTemplate.Bases;
+﻿using CSharpSeleniumTemplate.Bases;
 using OpenQA.Selenium;
 
 namespace CSharpSeleniumTemplate.Pages
@@ -25,15 +20,6 @@ namespace CSharpSeleniumTemplate.Pages
         {
             Click(selectCategory);
         }
-        public void PreencherResumo(string resumo)
-        {
-            SendKeys(summaryField,resumo);
-        }
-        public void PreencherDescricao(string descricao)
-        {
-            SendKeys(descriptionField, descricao);
-        }
-
         public void ClicarCriarNovaTarefa()
         {
             Click(buttonCreateNewTask);
@@ -42,16 +28,25 @@ namespace CSharpSeleniumTemplate.Pages
         {
             Click(menuCriarTarefa);
         }
+
+        public void PreencherResumo(string resumo)
+        {
+            SendKeys(summaryField,resumo);
+        }
+        public void PreencherDescricao(string descricao)
+        {
+            SendKeys(descriptionField, descricao);
+        }
+      
+
         public string ValidarCriarTarefa()
         {
             return GetText(validateLink);
         }
-      
         public string RetornarMsgDescricao(string atributo)
         {
             return GetAttribute(descriptionField,atributo);
         }
-
         public string RetornarMsgResumo(string atributo)
         {
             return GetAttribute(summaryField, atributo);

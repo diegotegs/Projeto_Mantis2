@@ -1,10 +1,6 @@
 ﻿using CSharpSeleniumTemplate.Bases;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CSharpSeleniumTemplate.Pages
 {
@@ -20,16 +16,6 @@ namespace CSharpSeleniumTemplate.Pages
         #endregion
 
         #region Actions
-        public void PreenhcerUsuario(string usuario)
-        {
-            SendKeysJavaScript(usernameField, usuario);
-        }
-
-        public void PreencherSenha(string senha)
-        {
-            SendKeysJavaScript(passwordField, senha);
-        }
-
         public void ClicarEmProcessir()
         {
             ClickJavaScript(loginNext);
@@ -37,6 +23,15 @@ namespace CSharpSeleniumTemplate.Pages
         public void ClicarEmLogar()
         {
             ClickJavaScript(loginButton);
+        }
+
+        public void PreenhcerUsuario(string usuario)
+        {
+            SendKeysJavaScript(usernameField, usuario);
+        }
+        public void PreencherSenha(string senha)
+        {
+            SendKeysJavaScript(passwordField, senha);
         }
 
         public bool RetornaElementoProximaPagina()
@@ -48,6 +43,7 @@ namespace CSharpSeleniumTemplate.Pages
         {
             return GetText(msgErroSenha);
         }
+
         #endregion
     }
 }

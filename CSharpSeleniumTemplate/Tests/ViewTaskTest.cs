@@ -28,7 +28,7 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string opcao = "Apagar";
-            CreateTaskDBSteps.MassaCriarTarefa();
+            CreateTaskDBSteps.CriarTarefaDB();
             
             #endregion
 
@@ -39,7 +39,8 @@ namespace CSharpSeleniumTemplate.Tests
             viewTaskPage.ClicarApagarTarefa();
             viewTaskPage.PreencherFiltroComIDItemExcluido();
             viewTaskPage.clicarAplicarFiltro();
-            Assert.AreEqual(0,SelectsDBSteps.RetornaQuantidadeDeTarefasExistente());
+
+            Assert.AreEqual(0,SelectsDBSteps.RetornaQuantidadeDeTarefasExistenteDB());
             Assert.False(viewTaskPage.VerificarElementoSeExiste());
 
         }
@@ -51,17 +52,18 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
-            CreateTaskDBSteps.MassaCriarTarefa();
+            CreateTaskDBSteps.CriarTarefaDB();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
 
             viewTaskPage.ClicarMenuVerTarefa();
-            viewTaskPage.LimparCampoFiltro();
+            viewTaskPage.ClicarELimparCampoFiltro();
             Assume.That(viewTaskPage.VerificarElementoSeExiste());
             viewTaskPage.GetPrimeiroConteudoDaTabela();
             viewTaskPage.PreencherFiltroParaPesquisar();
             viewTaskPage.clicarAplicarFiltro();
+
             Assert.True(viewTaskPage.recoverAttributeTableOne.Equals(viewTaskPage.RetornaConteudoTabelaTarefa()));
 
         }
@@ -76,13 +78,13 @@ namespace CSharpSeleniumTemplate.Tests
             string [] gravidade = new string []{ "trivial", "recurso", "texto", "mínimo", "pequeno", "grande", "travamento", "obstáculo" };
             Random n = new Random();
             string opcao = "Atualizar Gravidade";
-            CreateTaskDBSteps.MassaCriarTarefa();
+            CreateTaskDBSteps.CriarTarefaDB();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
 
             viewTaskPage.ClicarMenuVerTarefa();
-            viewTaskPage.LimparCampoFiltro();
+            viewTaskPage.ClicarELimparCampoFiltro();
 
             Assume.That(viewTaskPage.VerificarElementoSeExiste());
             viewTaskPage.SelecionarTarefa();
@@ -91,6 +93,7 @@ namespace CSharpSeleniumTemplate.Tests
             viewTaskPage.ClicarBNTOk();            
             viewTaskPage.SelecionarGrauDeGravidade(gravidade[n.Next(0,8)]);
             viewTaskPage.ClicarAtualizarGravidade();
+
             Assert.AreNotEqual(viewTaskPage.gravidade, viewTaskPage.GetGravidadeModificada());      
            
             
@@ -104,13 +107,14 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string opcao = "Resolver";
-            CreateTaskDBSteps.MassaCriarTarefa();
+            string status = "resolvido";
+            CreateTaskDBSteps.CriarTarefaDB();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
 
             viewTaskPage.ClicarMenuVerTarefa();
-            viewTaskPage.LimparCampoFiltro();
+            viewTaskPage.ClicarELimparCampoFiltro();
 
             Assume.That(viewTaskPage.VerificarElementoSeExiste());
             viewTaskPage.GetPrimeiroConteudoDaTabela();
@@ -120,7 +124,8 @@ namespace CSharpSeleniumTemplate.Tests
             viewTaskPage.ClicarEmResolver();
             viewTaskPage.PreencherFiltroParaPesquisar();
             viewTaskPage.clicarAplicarFiltro();
-            Assert.AreEqual("resolvido", viewTaskPage.GetEstadoTarefa());
+
+            Assert.AreEqual(status, viewTaskPage.GetEstadoTarefa());
 
 
 
@@ -134,7 +139,7 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string opcao = "Fechar";
-            CreateTaskDBSteps.MassaCriarTarefa();
+            CreateTaskDBSteps.CriarTarefaDB();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -142,6 +147,7 @@ namespace CSharpSeleniumTemplate.Tests
             viewTaskFlows.SelecionarCombox(opcao);           
             viewTaskPage.ClicarFechar();
             viewTaskFlows.PesquisarElemento();
+
             Assert.False(viewTaskPage.VerificarElementoSeExiste());
 
         }
@@ -155,7 +161,7 @@ namespace CSharpSeleniumTemplate.Tests
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string opcao = "Aplicar marcadores";
             string marcadores = GeneralHelpers.ReturnStringWithRandomCharacters(3);
-            CreateTaskDBSteps.MassaCriarTarefa();
+            CreateTaskDBSteps.CriarTarefaDB();
 
             #endregion
 
@@ -166,6 +172,7 @@ namespace CSharpSeleniumTemplate.Tests
             viewTaskPage.ClicarAplicarMarcadores();
             viewTaskFlows.PesquisarElemento();
             viewTaskPage.ClicarNaTarefa();
+
             Assert.True(viewTaskPage.GetMarcadores().Contains(marcadores));
         }
 
@@ -177,13 +184,13 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string marcadorDeletado;
-            CreateTaskDBSteps.MassaCriarTarefa();
+            CreateTaskDBSteps.CriarTarefaDB();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
 
             viewTaskPage.ClicarMenuVerTarefa();
-            viewTaskPage.LimparCampoFiltro();
+            viewTaskPage.ClicarELimparCampoFiltro();
 
             Assume.That(viewTaskPage.VerificarElementoSeExiste());
             viewTaskPage.GetPrimeiroConteudoDaTabela();
@@ -194,13 +201,11 @@ namespace CSharpSeleniumTemplate.Tests
             viewTaskPage.ClicarApagarMarcador();
             viewTaskPage.ClicarApagarMarcador();
             viewTaskPage.ClicarMenuVerTarefa();
-            viewTaskPage.LimparCampoFiltro();
+            viewTaskPage.ClicarELimparCampoFiltro();
             viewTaskPage.PreencherFiltroParaPesquisar();
             viewTaskPage.clicarAplicarFiltro();
-            viewTaskPage.ClicarNaTarefa();
+            viewTaskPage.ClicarNaTarefa();  
             
-
-
             Assert.False(viewTaskPage.GetMarcadores().Contains(marcadorDeletado));
         }
 

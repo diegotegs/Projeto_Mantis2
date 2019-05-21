@@ -155,7 +155,7 @@ WHERE username ='$convidado';</value>
     <value>SELECT name FROM mantis_custom_field_table
 WHERE NAME = '$namePersonalizado';</value>
   </data>
-  <data name="VerificaSeApagouTarefa" xml:space="preserve">
+  <data name="RetornaSeApagouTarefa" xml:space="preserve">
     <value>SELECT COUNT(*) AS Tarefas FROM mantis_bug_table;</value>
   </data>
 </root>

@@ -26,6 +26,7 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string nome = GeneralHelpers.ReturnStringWithRandomCharacters(4);
+            string msgEsperada = "Operação realizada com sucesso.";
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -35,9 +36,8 @@ namespace CSharpSeleniumTemplate.Tests
             manageFieldCustomPage.PreencherCampoNome(nome);
             manageFieldCustomPage.ClicarNovoCampoPersonalizado();
 
-            Assert.AreEqual(nome, SelectsDBSteps.RetornaCampoPersonalizadoCadastrado(nome));
-
-            Assert.AreEqual("Operação realizada com sucesso.", manageFieldCustomPage.RetornoMSgSucesso());
+            Assert.AreEqual(nome, SelectsDBSteps.RetornaCampoPersonalizadoCadastradoDB(nome));
+            Assert.AreEqual(msgEsperada, manageFieldCustomPage.RetornoMSgSucesso());
         }
 
         [Test]
@@ -47,7 +47,8 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
-            
+            string msgError = "Um campo necessário 'name' estava vazio.";
+
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -56,7 +57,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             manageFieldCustomPage.ClicarNovoCampoPersonalizado();
 
-            Assert.True(manageFieldCustomPage.RetornaMsgDeErro().Contains("Um campo necessário 'name' estava vazio."));
+            Assert.True(manageFieldCustomPage.RetornaMsgDeErro().Contains(msgError));
         }
 
         [Test]
@@ -67,22 +68,21 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string nome = "CampoPersonalizado " + GeneralHelpers.ReturnStringWithRandomNumbers(3);
+            string msgError = "Este é um nome duplicado.";
 
 
             #endregion
             InsertsDBSteps.CriarCampoPersonalizadoDB(nome);
+
             loginFlows.EfetuarLogin(usuario, senha);
 
             manageFieldCustomFlows.GerarCamposPersonalizados();
-
             Assume.That(manageFieldCustomPage.VerificarSeExisteCampoPersonalizado());
-
             manageFieldCustomPage.AdicionarElementoRepetidoNaTabela();
             manageFieldCustomPage.ClicarNovoCampoPersonalizado();
 
-            Assert.AreEqual(1, SelectsDBSteps.RetornarQtDeCampoExpecifico(nome));
-
-            Assert.True(manageFieldCustomPage.RetornaMsgDeErro().Contains("Este é um nome duplicado."));
+            Assert.AreEqual(1, SelectsDBSteps.RetornarQtDeCampoExpecificoDB(nome));
+            Assert.True(manageFieldCustomPage.RetornaMsgDeErro().Contains(msgError));
         }
 
         [Test]
@@ -93,23 +93,22 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string nome = "CampoPersonalizado "+GeneralHelpers.ReturnStringWithRandomNumbers(3);
-            
+            string msgEsperada = "Operação realizada com sucesso.";
+
             #endregion
 
             InsertsDBSteps.CriarCampoPersonalizadoDB(nome);
+
             loginFlows.EfetuarLogin(usuario, senha);
 
             manageFieldCustomFlows.GerarCamposPersonalizados();
-
             Assume.That(manageFieldCustomPage.VerificarSeExisteCampoPersonalizado());
-
             manageFieldCustomPage.ClicarPrimeiroCampoPersonalizado();
             manageFieldCustomPage.ClicarApagarCampoPersonalizado();
             manageFieldCustomPage.ClicarConfirmarDelete();
 
-            Assert.AreEqual(0,SelectsDBSteps.RetornarQtDeCampoExpecifico(nome));
-            
-            Assert.AreEqual("Operação realizada com sucesso.",manageFieldCustomPage.RetornoMSgSucesso());
+            Assert.AreEqual(0,SelectsDBSteps.RetornarQtDeCampoExpecificoDB(nome));            
+            Assert.AreEqual(msgEsperada ,manageFieldCustomPage.RetornoMSgSucesso());
         }
 
 

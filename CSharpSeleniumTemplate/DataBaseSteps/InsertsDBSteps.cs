@@ -20,11 +20,11 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
 
         public static void CriarCampoPersonalizadoDB(string nome)
         {
-            string queryCampoPersonalizado = InsertsQueries.MassaCampoPersonalizado.Replace("$campoPersonalizado",nome);
+            string queryCampoPersonalizado = InsertsQueries.MassaDeDadosCampoPersonalizado.Replace("$campoPersonalizado",nome);
             DataBaseHelpers.ExecuteQuery(queryCampoPersonalizado);
         }
 
-        public static void CriarPerfil(string plat, string osDB, string build)
+        public static void CriarPerfilDB(string plat, string osDB, string build)
         {
             string query = InsertsQueries.MassaDeDadoCriarPerfil.Replace("$plataforma", plat).
                 Replace("$so", osDB).Replace("$build", build);

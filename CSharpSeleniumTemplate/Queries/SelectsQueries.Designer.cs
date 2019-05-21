@@ -129,6 +129,15 @@ namespace CSharpSeleniumTemplate.Queries {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT COUNT(*) AS Tarefas FROM mantis_bug_table;.
+        /// </summary>
+        internal static string RetornaSeApagouTarefa {
+            get {
+                return ResourceManager.GetString("RetornaSeApagouTarefa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT summary FROM  mantis_bug_table
         ///WHERE summary = &apos;$resumo&apos;;.
         /// </summary>
@@ -155,15 +164,6 @@ namespace CSharpSeleniumTemplate.Queries {
         internal static string RetornoCampoPersonalizadoDB {
             get {
                 return ResourceManager.GetString("RetornoCampoPersonalizadoDB", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT COUNT(*) AS Tarefas FROM mantis_bug_table;.
-        /// </summary>
-        internal static string VerificaSeApagouTarefa {
-            get {
-                return ResourceManager.GetString("VerificaSeApagouTarefa", resourceCulture);
             }
         }
     }

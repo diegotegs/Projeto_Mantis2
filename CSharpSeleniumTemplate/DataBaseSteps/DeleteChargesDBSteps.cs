@@ -28,9 +28,10 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
             
         }
 
-        public static void DeletaUsuarios()
+        public static void DeletaUsuariosDB()
         {
             DataBaseHelpers.ExecuteQuery(DeleteQueries.DeletaUsuariosCriado);
+
         }
     }
 }

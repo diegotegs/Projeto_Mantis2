@@ -108,8 +108,11 @@ namespace CSharpSeleniumTemplate.Pages
         }      
         public void SelecionarGrauDeGravidade(string gravidade)
         {
+            
             ComboBoxSelectByVisibleText(comboBoxGravity, gravidade);
+                        
         }        
+       
 
         //Verificar ----------------------------------------------------------------------------------------------------
 

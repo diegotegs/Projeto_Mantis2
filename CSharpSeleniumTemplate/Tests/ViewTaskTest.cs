@@ -75,7 +75,7 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
-            string [] gravidade = new string []{ "trivial", "recurso", "texto", "mínimo", "pequeno", "grande", "travamento", "obstáculo" };
+            string [] gravidade = new string []{ "trivial", "recurso", "texto", "mínimo", "grande", "travamento", "obstáculo" };
             Random n = new Random();
             string opcao = "Atualizar Gravidade";
             CreateTaskDBSteps.CriarTarefaDB();
@@ -91,7 +91,7 @@ namespace CSharpSeleniumTemplate.Tests
             viewTaskPage.GetGravidade();
             viewTaskPage.SelecionarOpcao(opcao);
             viewTaskPage.ClicarBNTOk();            
-            viewTaskPage.SelecionarGrauDeGravidade(gravidade[n.Next(0,8)]);
+            viewTaskPage.SelecionarGrauDeGravidade(gravidade[n.Next(0,7)]);
             viewTaskPage.ClicarAtualizarGravidade();
 
             Assert.AreNotEqual(viewTaskPage.gravidade, viewTaskPage.GetGravidadeModificada());      

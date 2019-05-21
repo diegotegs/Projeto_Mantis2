@@ -14,17 +14,14 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
 
         public static void SetUpDB()
         {
-            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_bug_text_table;");
-            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_bug_table;");
-            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_tag_table;");
-            DataBaseHelpers.ExecuteQuery(" TRUNCATE TABLE mantis_bug_tag_table;");
-            DataBaseHelpers.ExecuteQuery("TRUNCATE TABLE mantis_custom_field_table;");
-            DataBaseHelpers.ExecuteQuery("TRUNCATE TABLE mantis_user_profile_table;");
+            string query = DeleteQueries.LimparBanco;
+            DataBaseHelpers.ExecuteQuery(query);
         }
 
         public static void OneTimeTearDB()
         {
-            DataBaseHelpers.ExecuteQuery("TRUNCATE TABLE  mantis_project_table ;");
+            string query = DeleteQueries.LimparProjeto;
+            DataBaseHelpers.ExecuteQuery(query);
             
         }
 

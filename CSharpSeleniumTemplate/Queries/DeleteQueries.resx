@@ -121,4 +121,15 @@
     <value>DELETE FROM mantis_user_table
 WHERE id !=1;</value>
   </data>
+  <data name="LimparBanco" xml:space="preserve">
+    <value>TRUNCATE TABLE mantis_bug_text_table;
+TRUNCATE TABLE mantis_bug_table;
+TRUNCATE TABLE mantis_tag_table;
+TRUNCATE TABLE mantis_bug_tag_table;
+TRUNCATE TABLE mantis_custom_field_table;
+TRUNCATE TABLE mantis_user_profile_table;</value>
+  </data>
+  <data name="LimparProjeto" xml:space="preserve">
+    <value>TRUNCATE TABLE  mantis_project_table;</value>
+  </data>
 </root>

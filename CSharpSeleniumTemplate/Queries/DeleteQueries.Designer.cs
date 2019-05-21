@@ -69,5 +69,28 @@ namespace CSharpSeleniumTemplate.Queries {
                 return ResourceManager.GetString("DeletaUsuariosCriado", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a TRUNCATE TABLE mantis_bug_text_table;
+        ///TRUNCATE TABLE mantis_bug_table;
+        ///TRUNCATE TABLE mantis_tag_table;
+        ///TRUNCATE TABLE mantis_bug_tag_table;
+        ///TRUNCATE TABLE mantis_custom_field_table;
+        ///TRUNCATE TABLE mantis_user_profile_table;.
+        /// </summary>
+        internal static string LimparBanco {
+            get {
+                return ResourceManager.GetString("LimparBanco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a TRUNCATE TABLE  mantis_project_table;.
+        /// </summary>
+        internal static string LimparProjeto {
+            get {
+                return ResourceManager.GetString("LimparProjeto", resourceCulture);
+            }
+        }
     }
 }

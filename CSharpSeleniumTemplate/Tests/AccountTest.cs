@@ -19,7 +19,7 @@ namespace CSharpSeleniumTemplate.Tests
         #endregion
 
         [Test]
-        [Category("VerificarAcessos")]
+        [Category("AcessarAbas")]
         public void VerificarAbaMinhaConta()
         {
             #region Parameters
@@ -35,7 +35,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
-        [Category("VerificarAcessos")]
+        [Category("AcessarAbas")]
         public void VerificarAbaPreferencias()
         {
             #region Parameters
@@ -52,7 +52,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
-        [Category("VerificarAcessos")]
+        [Category("AcessarAbas")]
         public void VerificarAbaGerenciarColunas()
         {
             #region Parameters
@@ -69,7 +69,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
-        [Category("VerificarAcessos")]
+        [Category("AcessarAbas")]
         public void VerificarAbaPerfil()
         {
             #region Parameters
@@ -86,7 +86,7 @@ namespace CSharpSeleniumTemplate.Tests
         }
 
         [Test]
-        [Category("VerificarAcessos")]
+        [Category("AcessarAbas")]
         public void VerificarAbaTokenApi()
         {
             #region Parameters

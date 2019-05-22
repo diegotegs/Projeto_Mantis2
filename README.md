@@ -1,45 +1,38 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+Mantis - Mariadb + Docker + SeleniumGrid/Node + Jenkins + Padrão de Projeto Page Object+ Selenium WEbDriver.
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+Foi utilizado o Docker para subi as imagens do Selenium Hub, Mantis, o banco Mariadb, Driver FireFox e Chrome, para cobrir o passo 4 foi criado uma instancia local do Internet Explorer.
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+Para criar os testes foi adotado as linguagens de programação CSharp e Java Scripts(alguns métodos adotado na arquitetura),o desafio foi feito em cima do Template da nova arquitetura definida pela Base2.
 
----
+Segue abaixo o desafio definido.
 
-## Edit a file
+Desafio Automação - Selenium WebDriver
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+Regras	2
+Dicas	3
+Exemplos de código 5
 
----
+Regras
 
-## Create a file
+1) Implementar 50 scripts de testes que manipulem uma aplicação web (sugestões: Mantis ou TestLink) com Page Objects.
+2) Alguns scripts devem ler dados de uma planilha Excel para implementar Data-Driven.
+Quem utilizar Cucumber, SpecFlow ou outra ferramenta de BDD não precisa implementar lendo de uma planilha Excel. Pode ser a implementação de um Scenario Outline.
+3) Notem que 50 scripts podem cobrir mais de 50 casos de testes se usarmos Data-Driven. Em outras palavras, implementar 50 CTs usando data-driven não é a mesma coisa que implementar 50 scripts.
+4) Os casos de testes precisam ser executados em no mínimo três navegadores. Utilizando o Selenium Grid.
+Não é necessário executar em paralelo. Pode ser demonstrada a execução dos browsers separadamente.
+Não é uma boa prática executar os testes em todos os browsers em uma única execução. A melhor forma é controlar o browser através de um arquivo de configuração.
+.NET: normalmente utiliza-se app.config
+Java: normalmente utiliza-se a classe Properties e cria-se um arquivo chamado environment.properties.
 
-Next, you’ll add a new file to this repository.
+(Metas 1 até 4 + as metas abaixo)
+5) Gravar screenshots ou vídeo automaticamente dos casos de testes.
+6) O projeto deverá gerar um relatório de testes automaticamente com screenshots ou vídeos embutidos. Sugestões: Allure Report ou ExtentReport.
+7) A massa de testes deve ser preparada neste projeto, seja com scripts carregando massa nova no BD ou com restore de banco de dados.
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+(Metas 1 até 7 + as metas abaixo)
+8) Um dos scripts deve injetar Javascript para executar alguma operação na tela. O objetivo aqui é exercitar a injeção de Javascript dentro do código do Selenium.
+Sugestão: fazer o login usando Javascript ao invés do código do Selenium.
+9) Testes deverão ser agendados pelo Jenkins, CircleCI, TFS, TeamCity ou outra ferramenta de CI que preferir.
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
 
----
-
-## Clone a repository
-
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
-
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
-
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).

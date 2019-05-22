@@ -25,7 +25,7 @@ namespace CSharpSeleniumTemplate.Bases
             //Zera algumas tabelas do banco ao iniciar um teste 
             DeleteChargesDBSteps.SetUpDB();
            //cria um projeto ao iniciar um teste
-            CreateProjectDBSteps.CriarProjetoBD("Test " + GeneralHelpers.ReturnStringWithRandomCharacters(3),
+            ProjectDBSteps.CriarProjetoBD("Test " + GeneralHelpers.ReturnStringWithRandomCharacters(3),
                "Descricao " + GeneralHelpers.ReturnStringWithRandomCharacters(3));                
             
             ExtentReportHelpers.AddTest();

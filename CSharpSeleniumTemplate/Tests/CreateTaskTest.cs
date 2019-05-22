@@ -97,7 +97,7 @@ namespace CSharpSeleniumTemplate.Tests
             createTaskFlows.CriarTarefa(resumo, descricao);
 
             Assert.That(createTaskPage.ValidarCriarTarefa().Contains(msgEsperada));
-            Assert.True(SelectsDBSteps.RetornaResumoCriadoDB(resumo).Contains(controle));
+            Assert.True(TaskDBSteps.RetornaResumoCriadoDB(resumo).Contains(controle));
 
         }
 
@@ -117,7 +117,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             createTaskFlows.CriarTarefa(resumo,descricao);
 
-            Assert.AreEqual(resumo, SelectsDBSteps.RetornaResumoCriadoSemParameroDB());
+            Assert.AreEqual(resumo, TaskDBSteps.RetornaResumoCriadoSemParameroDB());
             Assert.That(createTaskPage.ValidarCriarTarefa().Contains("sucesso"));
         }
 

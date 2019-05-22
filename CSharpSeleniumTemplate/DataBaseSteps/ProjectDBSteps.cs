@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CSharpSeleniumTemplate.DataBaseSteps
 {
-    public class CreateProjectDBSteps
+    public class ProjectDBSteps
     {
         public static void CriarProjetoBD(string nome, string descricao)
         {
@@ -18,6 +18,13 @@ namespace CSharpSeleniumTemplate.DataBaseSteps
             
             DataBaseHelpers.ExecuteQuery(inserirProjeto);
             
+        }
+
+        public static int RetornaQuantidadeDeProjetosCriadosDB()
+        {
+            string query = SelectsQueries.RetornaQuantidadeDeProjetoExistente;
+            return Convert.ToInt32(DataBaseHelpers.RetornaDadosQuery(query)[0]);
+
         }
     }
 }

@@ -36,7 +36,7 @@ namespace CSharpSeleniumTemplate.Tests
             manageFieldCustomPage.PreencherCampoNome(nome);
             manageFieldCustomPage.ClicarNovoCampoPersonalizado();
 
-            Assert.AreEqual(nome, SelectsDBSteps.RetornaCampoPersonalizadoCadastradoDB(nome));
+            Assert.AreEqual(nome, TaskDBSteps.RetornaCampoPersonalizadoCadastradoDB(nome));
             Assert.AreEqual(msgEsperada, manageFieldCustomPage.RetornoMSgSucesso());
         }
 
@@ -72,7 +72,7 @@ namespace CSharpSeleniumTemplate.Tests
 
 
             #endregion
-            InsertsDBSteps.CriarCampoPersonalizadoDB(nome);
+            TaskDBSteps.CriarCampoPersonalizadoDB(nome);
 
             loginFlows.EfetuarLogin(usuario, senha);
 
@@ -81,7 +81,7 @@ namespace CSharpSeleniumTemplate.Tests
             manageFieldCustomPage.AdicionarElementoRepetidoNaTabela();
             manageFieldCustomPage.ClicarNovoCampoPersonalizado();
 
-            Assert.AreEqual(1, SelectsDBSteps.RetornarQtDeCampoExpecificoDB(nome));
+            Assert.AreEqual(1, TaskDBSteps.RetornarQtDeCampoPersonalizadoExpecificoDB(nome));
             Assert.True(manageFieldCustomPage.RetornaMsgDeErro().Contains(msgError));
         }
 
@@ -97,7 +97,7 @@ namespace CSharpSeleniumTemplate.Tests
 
             #endregion
 
-            InsertsDBSteps.CriarCampoPersonalizadoDB(nome);
+            TaskDBSteps.CriarCampoPersonalizadoDB(nome);
 
             loginFlows.EfetuarLogin(usuario, senha);
 
@@ -107,7 +107,7 @@ namespace CSharpSeleniumTemplate.Tests
             manageFieldCustomPage.ClicarApagarCampoPersonalizado();
             manageFieldCustomPage.ClicarConfirmarDelete();
 
-            Assert.AreEqual(0,SelectsDBSteps.RetornarQtDeCampoExpecificoDB(nome));            
+            Assert.AreEqual(0,TaskDBSteps.RetornarQtDeCampoPersonalizadoExpecificoDB(nome));            
             Assert.AreEqual(msgEsperada ,manageFieldCustomPage.RetornoMSgSucesso());
         }
 

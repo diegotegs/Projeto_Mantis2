@@ -28,7 +28,7 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string opcao = "Apagar";
-            CreateTaskDBSteps.CriarTarefaDB();
+            TaskDBSteps.CriarTarefaDB();
             
             #endregion
 
@@ -40,7 +40,7 @@ namespace CSharpSeleniumTemplate.Tests
             viewTaskPage.PreencherFiltroComIDItemExcluido();
             viewTaskPage.clicarAplicarFiltro();
 
-            Assert.AreEqual(0,SelectsDBSteps.RetornaQuantidadeDeTarefasExistenteDB());
+            Assert.AreEqual(0,TaskDBSteps.RetornaQuantidadeDeTarefasExistenteDB());
             Assert.False(viewTaskPage.VerificarElementoSeExiste());
 
         }
@@ -52,7 +52,7 @@ namespace CSharpSeleniumTemplate.Tests
             #region Parameters
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
-            CreateTaskDBSteps.CriarTarefaDB();
+            TaskDBSteps.CriarTarefaDB();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -78,7 +78,7 @@ namespace CSharpSeleniumTemplate.Tests
             string [] gravidade = new string []{ "trivial", "recurso", "texto", "mínimo", "grande", "travamento", "obstáculo" };
             Random n = new Random();
             string opcao = "Atualizar Gravidade";
-            CreateTaskDBSteps.CriarTarefaDB();
+            TaskDBSteps.CriarTarefaDB();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -108,7 +108,7 @@ namespace CSharpSeleniumTemplate.Tests
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string opcao = "Resolver";
             string status = "resolvido";
-            CreateTaskDBSteps.CriarTarefaDB();
+            TaskDBSteps.CriarTarefaDB();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -139,7 +139,7 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string opcao = "Fechar";
-            CreateTaskDBSteps.CriarTarefaDB();
+            TaskDBSteps.CriarTarefaDB();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);
@@ -161,7 +161,7 @@ namespace CSharpSeleniumTemplate.Tests
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string opcao = "Aplicar marcadores";
             string marcadores = GeneralHelpers.ReturnStringWithRandomCharacters(3);
-            CreateTaskDBSteps.CriarTarefaDB();
+            TaskDBSteps.CriarTarefaDB();
 
             #endregion
 
@@ -184,7 +184,7 @@ namespace CSharpSeleniumTemplate.Tests
             string usuario = Properties.Settings.Default.DEFAULT_USER;
             string senha = Properties.Settings.Default.DEFAULT_PASSWORD;
             string marcadorDeletado;
-            CreateTaskDBSteps.CriarTarefaDB();
+            TaskDBSteps.CriarTarefaDB();
             #endregion
 
             loginFlows.EfetuarLogin(usuario, senha);

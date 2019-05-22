@@ -147,7 +147,7 @@ namespace CSharpSeleniumTemplate.Tests
             int qtsAntes;
             int qtsDepois;
             #endregion
-            qtsAntes = SelectsDBSteps.RetornaQuantidadeDeProjetosCriadosDB();
+            qtsAntes = ProjectDBSteps.RetornaQuantidadeDeProjetosCriadosDB();
             loginFlows.EfetuarLogin(usuario, senha);
 
             managePage.ClicarMenuGerenciar();
@@ -157,7 +157,7 @@ namespace CSharpSeleniumTemplate.Tests
             managePage.PreencherDescricaoProjeto();
             managePage.ClicarAdicionarProjeto();
 
-            qtsDepois = SelectsDBSteps.RetornaQuantidadeDeProjetosCriadosDB();
+            qtsDepois = ProjectDBSteps.RetornaQuantidadeDeProjetosCriadosDB();
 
             Assert.Less(qtsAntes, qtsDepois);
             Assert.AreEqual(msgEsperada, managePage.MenssagemSucesso());
@@ -176,7 +176,7 @@ namespace CSharpSeleniumTemplate.Tests
             int qtsAntes;
             int qtsDepois;
             #endregion
-            qtsAntes = SelectsDBSteps.RetornaQuantidadeDeProjetosCriadosDB();
+            qtsAntes = ProjectDBSteps.RetornaQuantidadeDeProjetosCriadosDB();
             loginFlows.EfetuarLogin(usuario, senha);
 
             managePage.ClicarMenuGerenciar();
@@ -186,7 +186,7 @@ namespace CSharpSeleniumTemplate.Tests
             managePage.ClicarApagarProjeto();
             managePage.ConfirmarApagarProjeto();
 
-            qtsDepois = SelectsDBSteps.RetornaQuantidadeDeProjetosCriadosDB();
+            qtsDepois = ProjectDBSteps.RetornaQuantidadeDeProjetosCriadosDB();
 
             Assert.Greater(qtsAntes,qtsDepois);
             Assert.That(managePage.VerificarExistenciaDoBotaoCriarNovaProjeto());
@@ -252,7 +252,7 @@ namespace CSharpSeleniumTemplate.Tests
             managePage.PreecherDescricaoMarcadores();
             managePage.ClicarCriarMarcadores();
 
-            Assert.AreEqual(managePage.confirmCreateMarkers,SelectsDBSteps.RetornaMarcadoresCriadoDB(managePage.confirmCreateMarkers));
+            Assert.AreEqual(managePage.confirmCreateMarkers,TaskDBSteps.RetornaMarcadoresCriadoDB(managePage.confirmCreateMarkers));
             Assert.AreEqual(managePage.confirmCreateMarkers, managePage.VerificarCriarMarcadores());
         }
 
@@ -266,7 +266,7 @@ namespace CSharpSeleniumTemplate.Tests
             string marcador = "Marcador "+ GeneralHelpers.ReturnStringWithRandomNumbers(3);
             string descricao = "Descrição "+ GeneralHelpers.ReturnStringWithRandomNumbers(3);
             #endregion
-            InsertsDBSteps.CriarMarcadorDB(marcador,descricao);
+            TaskDBSteps.CriarMarcadorDB(marcador,descricao);
 
             loginFlows.EfetuarLogin(usuario, senha);
 
@@ -280,7 +280,7 @@ namespace CSharpSeleniumTemplate.Tests
             managePage.ClicarApagarMarcador();
             managePage.ClicarApagarMarcador();
 
-            Assert.AreEqual(0, SelectsDBSteps.VerificarMarcadorDeletadoDB(marcador));
+            Assert.AreEqual(0, TaskDBSteps.VerificarMarcadorDeletadoDB(marcador));
             Assert.Greater(Convert.ToInt32(managePage.qtsRegister), Convert.ToInt32(managePage.qtsRegister)-1);
 
 

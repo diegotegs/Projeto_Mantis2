@@ -242,7 +242,7 @@ namespace CSharpSeleniumTemplate.Tests
             string build = GeneralHelpers.ReturnStringWithRandomCharacters(5);
 
             #endregion
-            InsertsDBSteps.CriarPerfilDB(plataforma,os,build);
+            ProfileDBSteps.CriarPerfilDB(plataforma,os,build);
             loginFlows.EfetuarLogin(usuario, senha);
 
             accountPage.ClicarAlterarConta();
@@ -253,7 +253,7 @@ namespace CSharpSeleniumTemplate.Tests
             accountPage.ClicarEmApagar();
             accountPage.ClicarEnviar();
 
-            Assert.AreEqual(0, SelectsDBSteps.VerificarQuantidadeDePerfilExistenteDB(plataforma));
+            Assert.AreEqual(0, ProfileDBSteps.VerificarQuantidadeDePerfilExistenteDB(plataforma));
             Assert.Greater(accountPage.amountOption , accountPage.restOption);
             
         }

@@ -112,12 +112,10 @@
   <ItemGroup>
     <Compile Include="Bases\PageBase.cs" />
     <Compile Include="Bases\TestBase.cs" />
-    <Compile Include="DataBaseSteps\CreateProjectDBSteps.cs" />
-    <Compile Include="DataBaseSteps\CreateTaskDBSteps.cs" />
+    <Compile Include="DataBaseSteps\ProjectDBSteps.cs" />
+    <Compile Include="DataBaseSteps\TaskDBSteps.cs" />
     <Compile Include="DataBaseSteps\DeleteChargesDBSteps.cs" />
-    <Compile Include="DataBaseSteps\InsertsDBSteps.cs" />
-    <Compile Include="DataBaseSteps\ReturnProfileDBSteps.cs" />
-    <Compile Include="DataBaseSteps\SelectsDBSteps.cs" />
+    <Compile Include="DataBaseSteps\ProfileDBSteps.cs" />
     <Compile Include="Flows\AccountPageFlows.cs" />
     <Compile Include="Flows\CreateTaskFlows.cs" />
     <Compile Include="Flows\LoginFlows.cs" />

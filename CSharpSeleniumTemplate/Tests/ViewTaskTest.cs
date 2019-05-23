@@ -91,7 +91,7 @@ namespace CSharpSeleniumTemplate.Tests
             viewTaskPage.GetGravidade();
             viewTaskPage.SelecionarOpcao(opcao);
             viewTaskPage.ClicarBNTOk();            
-            viewTaskPage.SelecionarGrauDeGravidade(gravidade[n.Next(0,7)]);
+            viewTaskPage.SelecionarGrauDeGravidade(gravidade[n.Next(0, gravidade.Length)]);
             viewTaskPage.ClicarAtualizarGravidade();
 
             Assert.AreNotEqual(viewTaskPage.gravidade, viewTaskPage.GetGravidadeModificada());      

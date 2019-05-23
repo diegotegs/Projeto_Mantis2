@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using CSharpSeleniumTemplate.Helpers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
@@ -229,6 +227,7 @@ namespace CSharpSeleniumTemplate.Bases
             javaScript.ExecuteScript("window.scrollTo(0, 0);");
             ExtentReportHelpers.AddTestInfo(3, "");
         }
+       
         #endregion
 
         #region Default Actions
